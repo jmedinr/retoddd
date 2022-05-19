@@ -16,4 +16,12 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>co.com.sofka</groupId>
+            <artifactId>domain</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+    </dependencies>
+
 </project>
