@@ -1,31 +1,36 @@
 package co.com.sofkau.taller.asesor;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofkau.taller.asesor.value.AutorizacionCliente;
-import co.com.sofkau.taller.asesor.value.Ingreso;
-import co.com.sofkau.taller.asesor.value.RegistroId;
-import co.com.sofkau.taller.asesor.value.TipoRegistro;
+import co.com.sofkau.taller.asesor.value.*;
+import co.com.sofkau.generic.values.TipoTrabajo;
+
+import java.util.Map;
 
 public class Registro extends Entity<RegistroId> {
-    protected TipoRegistro tipoRegistro;
+    protected TipoTrabajo tipoTrabajo;
     protected Ingreso ingreso;
     protected AutorizacionCliente autorizacionCliente;
+    protected Map<ClienteId, Cliente> clienteMap;
+    protected Map<AutoId, Auto> autoMap;
 
 
-    public Registro(RegistroId entityId, TipoRegistro tipoRegistro, Ingreso ingreso, AutorizacionCliente autorizacionCliente) {
+    public Registro(RegistroId entityId, TipoTrabajo tipoTrabajo, Ingreso ingreso,
+                    AutorizacionCliente autorizacionCliente,
+                    Map<ClienteId, Cliente> clienteMap, Map<AutoId, Auto> autoMap) {
         super(entityId);
-        this.tipoRegistro = tipoRegistro;
+        this.tipoTrabajo = tipoTrabajo;
         this.ingreso = ingreso;
         this.autorizacionCliente = autorizacionCliente;
+        this.clienteMap = clienteMap;
+        this.autoMap = autoMap;
     }
 
-
-    public TipoRegistro getTipoRegistro() {
-        return tipoRegistro;
+    public TipoTrabajo getTipoTrabajo() {
+        return tipoTrabajo;
     }
 
-    public void setTipoRegistro(TipoRegistro tipoRegistro) {
-        this.tipoRegistro = tipoRegistro;
+    public void setTipoTrabajo(TipoTrabajo tipoTrabajo) {
+        this.tipoTrabajo = tipoTrabajo;
     }
 
     public Ingreso getIngreso() {
@@ -42,5 +47,21 @@ public class Registro extends Entity<RegistroId> {
 
     public void setAutorizacionCliente(AutorizacionCliente autorizacionCliente) {
         this.autorizacionCliente = autorizacionCliente;
+    }
+
+    public Map<ClienteId, Cliente> getClienteMap() {
+        return clienteMap;
+    }
+
+    public void setClienteMap(Map<ClienteId, Cliente> clienteMap) {
+        this.clienteMap = clienteMap;
+    }
+
+    public Map<AutoId, Auto> getAutoMap() {
+        return autoMap;
+    }
+
+    public void setAutoMap(Map<AutoId, Auto> autoMap) {
+        this.autoMap = autoMap;
     }
 }

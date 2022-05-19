@@ -1,6 +1,7 @@
 package co.com.sofkau.taller.asesor.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.asesor.Auto;
 import co.com.sofkau.taller.asesor.Cliente;
 import co.com.sofkau.taller.asesor.value.*;
@@ -14,37 +15,24 @@ public class RegistroExitoso extends DomainEvent {
     private final RegistroId registroId;
     private final MecanicoId mecanicoId;
     private final VendedorId vendedorId;
-    private final TipoRegistro tipoRegistro;
+    private final TipoTrabajo tipoTrabajo;
     private final Ingreso ingreso;
     private final AutorizacionCliente autorizacionCliente;
-    private final Map<AutoId, Auto> autoMap;
     private final Map<ClienteId, Cliente> clienteMap;
+    private final Map<AutoId, Auto> autoMap;
 
-
-    public RegistroExitoso(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId, TipoRegistro tipoRegistro,
-                           Ingreso ingreso, AutorizacionCliente autorizacionCliente,
-                           Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap) {
-        super("co.com.sofkau.taller.RegistroExistoso");
+    public RegistroExitoso(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId,
+                           TipoTrabajo tipoTrabajo, Ingreso ingreso, AutorizacionCliente autorizacionCliente,
+                           Map<ClienteId, Cliente> clienteMap, Map<AutoId, Auto> autoMap) {
+        super("co.com.sofkau.taller.RegistroExitoso");
         this.registroId = registroId;
         this.mecanicoId = mecanicoId;
         this.vendedorId = vendedorId;
-        this.tipoRegistro = tipoRegistro;
+        this.tipoTrabajo = tipoTrabajo;
         this.ingreso = ingreso;
         this.autorizacionCliente = autorizacionCliente;
-        this.autoMap = autoMap;
         this.clienteMap = clienteMap;
-    }
-
-    public Map<AutoId, Auto> getAutoMap() {
-        return autoMap;
-    }
-
-    public VendedorId getVendedorId() {
-        return vendedorId;
-    }
-
-    public Map<ClienteId, Cliente> getClienteMap() {
-        return clienteMap;
+        this.autoMap = autoMap;
     }
 
     public RegistroId getRegistroId() {
@@ -55,8 +43,12 @@ public class RegistroExitoso extends DomainEvent {
         return mecanicoId;
     }
 
-    public TipoRegistro getTipoRegistro() {
-        return tipoRegistro;
+    public VendedorId getVendedorId() {
+        return vendedorId;
+    }
+
+    public TipoTrabajo getTipoTrabajo() {
+        return tipoTrabajo;
     }
 
     public Ingreso getIngreso() {
@@ -65,5 +57,13 @@ public class RegistroExitoso extends DomainEvent {
 
     public AutorizacionCliente getAutorizacionCliente() {
         return autorizacionCliente;
+    }
+
+    public Map<ClienteId, Cliente> getClienteMap() {
+        return clienteMap;
+    }
+
+    public Map<AutoId, Auto> getAutoMap() {
+        return autoMap;
     }
 }

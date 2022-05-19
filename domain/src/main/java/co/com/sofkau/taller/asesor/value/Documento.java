@@ -22,4 +22,17 @@ public class Documento implements ValueObject<String> {
     public String value() {
         return value;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Documento)) return false;
+        Documento documento = (Documento) o;
+        return Objects.equals(value, documento.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
 }

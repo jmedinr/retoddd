@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.generic.values.Correo;
 import co.com.sofkau.generic.values.Nombre;
 import co.com.sofkau.generic.values.Telefono;
+import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.asesor.events.AsesorAsignado;
 import co.com.sofkau.taller.asesor.events.AutoAgregado;
 import co.com.sofkau.taller.asesor.events.ClienteAgregado;
@@ -44,10 +45,10 @@ public class Asesor extends AggregateEvent<AsesorId> {
         return curso;
     }
 
-    public void agregarRegistro( TipoRegistro tipoRegistro, Ingreso ingreso, AutorizacionCliente autorizacionCliente,
-                                 Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap){
+    public void agregarRegistro(TipoTrabajo tipoTrabajo, Ingreso ingreso, AutorizacionCliente autorizacionCliente){
         var registroId = new RegistroId();
-        appendChange(new RegistroExitoso(registroId, this.mecanicoId, this.vendedorId, tipoRegistro, ingreso,autorizacionCliente, this.autoMap, this.clienteMap)).apply();
+        appendChange(new RegistroExitoso(registroId,this.mecanicoId,this.vendedorId,tipoTrabajo,ingreso,
+                autorizacionCliente,this.clienteMap,this.autoMap)).apply();
     }
 
     public void agregarCliente( Documento documento, Nombre nombre, Telefono telefono, Correo correo){

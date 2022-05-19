@@ -36,7 +36,8 @@ public class AsesorEventChange extends EventChange {
 
         apply((RegistroExitoso event) ->{
             var registroId = event.getRegistroId();
-            var registro = new Registro(registroId,event.getTipoRegistro(),event.getIngreso(),event.getAutorizacionCliente());
+            var registro = new Registro(registroId,event.getTipoTrabajo(),event.getIngreso(),
+                    event.getAutorizacionCliente(),event.getClienteMap(),event.getAutoMap());
             asesor.registroMap.put(registroId,registro);
         });
     }

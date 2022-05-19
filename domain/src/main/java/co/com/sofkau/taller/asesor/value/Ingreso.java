@@ -35,4 +35,17 @@ public class Ingreso implements ValueObject<Ingreso.Pros> {
         LocalDateTime horaingreso();
         LocalDate diaIngreso();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ingreso)) return false;
+        Ingreso ingreso = (Ingreso) o;
+        return Objects.equals(horaingreso, ingreso.horaingreso) && Objects.equals(diaIngreso, ingreso.diaIngreso);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(horaingreso, diaIngreso);
+    }
 }
