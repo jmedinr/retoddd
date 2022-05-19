@@ -8,7 +8,7 @@ import co.com.sofkau.taller.mecanico.value.MecanicoId;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 
-public class AsesorAgregado extends DomainEvent {
+public class AsesorAsignado extends DomainEvent {
     private final Nombre nombre;
     private final Telefono telefono;
     private final Correo correo;
@@ -16,8 +16,8 @@ public class AsesorAgregado extends DomainEvent {
     private final VendedorId vendedorId;
 
 
-    public AsesorAgregado(Nombre nombre, Telefono telefono, Correo correo, MecanicoId mecanicoId, VendedorId vendedorId) {
-        super("co.com.sofkau.taller.AsesorAgregado");
+    public AsesorAsignado(Nombre nombre, Telefono telefono, Correo correo, MecanicoId mecanicoId, VendedorId vendedorId) {
+        super("co.com.sofkau.taller.AsesorAsignado");
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;

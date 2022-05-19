@@ -6,6 +6,10 @@ public class RegistroId extends Identity {
     public RegistroId(String id){
         super(id);
     }
+
+    public RegistroId() {
+    }
+
     public static RegistroId of(String id) {
         return new RegistroId(id);
     }
