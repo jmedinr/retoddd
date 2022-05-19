@@ -44,19 +44,20 @@ public class Asesor extends AggregateEvent<AsesorId> {
         return curso;
     }
 
-    public void agregarRegistro( TipoRegistro tipoRegistro, Ingreso ingreso, AutorizacionCliente autorizacionCliente){
+    public void agregarRegistro( TipoRegistro tipoRegistro, Ingreso ingreso, AutorizacionCliente autorizacionCliente,
+                                 Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap){
         var registroId = new RegistroId();
-        appendChange(new RegistroExitoso(registroId, this.mecanicoId, tipoRegistro, ingreso,autorizacionCliente)).apply();
+        appendChange(new RegistroExitoso(registroId, this.mecanicoId, this.vendedorId, tipoRegistro, ingreso,autorizacionCliente, this.autoMap, this.clienteMap)).apply();
     }
 
     public void agregarCliente( Documento documento, Nombre nombre, Telefono telefono, Correo correo){
         var clienteId = new ClienteId();
-        appendChange(new ClienteAgregado(clienteId,this.vendedorId,documento,nombre,telefono,correo)).apply();
+        appendChange(new ClienteAgregado(clienteId,documento,nombre,telefono,correo)).apply();
     }
 
     public void agregarAuto( Marca marca, Placa placa){
         var autoId = new AutoId();
-        appendChange(new AutoAgregado(autoId,this.vendedorId, this.mecanicoId,marca,placa)).apply();
+        appendChange(new AutoAgregado(autoId,marca,placa)).apply();
     }
 
     public MecanicoId mecanicoId() {

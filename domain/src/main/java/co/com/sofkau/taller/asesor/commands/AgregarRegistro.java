@@ -1,6 +1,6 @@
-package co.com.sofkau.taller.asesor.events;
+package co.com.sofkau.taller.asesor.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import co.com.sofkau.taller.asesor.Auto;
 import co.com.sofkau.taller.asesor.Cliente;
 import co.com.sofkau.taller.asesor.value.*;
@@ -9,8 +9,7 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 import java.util.Map;
 
-
-public class RegistroExitoso extends DomainEvent {
+public class AgregarRegistro extends Command {
     private final RegistroId registroId;
     private final MecanicoId mecanicoId;
     private final VendedorId vendedorId;
@@ -21,10 +20,9 @@ public class RegistroExitoso extends DomainEvent {
     private final Map<ClienteId, Cliente> clienteMap;
 
 
-    public RegistroExitoso(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId, TipoRegistro tipoRegistro,
-                           Ingreso ingreso, AutorizacionCliente autorizacionCliente,
-                           Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap) {
-        super("co.com.sofkau.taller.RegistroExistoso");
+
+    public AgregarRegistro(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId, TipoRegistro tipoRegistro,
+                           Ingreso ingreso, AutorizacionCliente autorizacionCliente, Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap) {
         this.registroId = registroId;
         this.mecanicoId = mecanicoId;
         this.vendedorId = vendedorId;
@@ -35,8 +33,8 @@ public class RegistroExitoso extends DomainEvent {
         this.clienteMap = clienteMap;
     }
 
-    public Map<AutoId, Auto> getAutoMap() {
-        return autoMap;
+    public RegistroId getRegistroId() {
+        return registroId;
     }
 
     public VendedorId getVendedorId() {
@@ -45,10 +43,6 @@ public class RegistroExitoso extends DomainEvent {
 
     public Map<ClienteId, Cliente> getClienteMap() {
         return clienteMap;
-    }
-
-    public RegistroId getRegistroId() {
-        return registroId;
     }
 
     public MecanicoId getMecanicoId() {
@@ -65,5 +59,9 @@ public class RegistroExitoso extends DomainEvent {
 
     public AutorizacionCliente getAutorizacionCliente() {
         return autorizacionCliente;
+    }
+
+    public Map<AutoId, Auto> getAutoMap() {
+        return autoMap;
     }
 }
