@@ -57,8 +57,12 @@ public class Vendedor extends AggregateEvent<VendedorId> {
         appendChange(new EntregaRealizada(vendedorId, salida, valorTotal)).apply();
     }
 
-    public void crearFactura(List<FacturaGenerada.TuplaFactura> tuplaFacturas, VendedorId vendedorId) {
-        appendChange(new FacturaGenerada(tuplaFacturas, vendedorId)).apply();
+    public void crearFactura(FacturaId facturaId, VendedorId vendedorId, DatosCliente datosCliente,
+                             Set<DatosEmpresa> datosEmpresa, Set<DatosAuto> datosAuto,
+                             Set<ListaRepuestos> listaRepuestosSet, ValorCompra valorCompra,
+                             ValorReparacion valorReparacion, ValorTotal valorTotal) {
+        appendChange(new FacturaGenerada(facturaId,vendedorId,datosCliente,datosEmpresa,datosAuto,
+                listaRepuestosSet,valorCompra,valorReparacion,valorTotal)).apply();
 
 
     }

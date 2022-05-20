@@ -2,10 +2,7 @@ package co.com.sofkau.taller.vendedor;
 
 import co.com.sofka.domain.generic.EventChange;
 import co.com.sofkau.taller.vendedor.events.*;
-import co.com.sofkau.taller.vendedor.value.CompraId;
-import co.com.sofkau.taller.vendedor.value.EntregaId;
-import co.com.sofkau.taller.vendedor.value.FacturaId;
-import co.com.sofkau.taller.vendedor.value.VentaId;
+import co.com.sofkau.taller.vendedor.value.*;
 
 import java.util.HashMap;
 
@@ -44,7 +41,9 @@ public class VendedorEventChange extends EventChange {
 
         apply((FacturaGenerada event) -> {
             var facturaId = new FacturaId();
-            var factura = new Factura(facturaId, event.getTuplaFacturas(), event.getVendedorId());
+            var factura = new Factura(facturaId, event.getVendedorId(),event.getDatosCliente(),
+                    event.getDatosEmpresa(),event.getDatosAuto(),event.getListaRepuestosSet(),event.getValorCompra(),
+                    event.getValorReparacion(),event.getValorTotal());
             vendedor.factura.put(facturaId, factura);
         });
     }
