@@ -12,7 +12,6 @@ public class AutoAgregado extends DomainEvent {
     private final Marca marca;
     private final Placa placa;
 
-
     public AutoAgregado(AutoId autoId, Marca marca, Placa placa) {
         super("co.com.sofkau.taller.AutoAgregado");
         this.autoId = autoId;
