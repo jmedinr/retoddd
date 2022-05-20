@@ -12,8 +12,7 @@ import java.util.Map;
 
 public class AgregarRegistro extends Command {
     private final RegistroId registroId;
-    private final MecanicoId mecanicoId;
-    private final VendedorId vendedorId;
+    private final AsesorId asesorId;
     private final TipoTrabajo tipoTrabajo;
     private final Ingreso ingreso;
     private final AutorizacionCliente autorizacionCliente;
@@ -21,12 +20,11 @@ public class AgregarRegistro extends Command {
     private final Map<ClienteId, Cliente> clienteMap;
 
 
-    public AgregarRegistro(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId, TipoTrabajo tipoTrabajo,
+    public AgregarRegistro(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId, AsesorId asesorId, TipoTrabajo tipoTrabajo,
                            Ingreso ingreso, AutorizacionCliente autorizacionCliente,
                            Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap) {
         this.registroId = registroId;
-        this.mecanicoId = mecanicoId;
-        this.vendedorId = vendedorId;
+        this.asesorId = asesorId;
         this.tipoTrabajo = tipoTrabajo;
         this.ingreso = ingreso;
         this.autorizacionCliente = autorizacionCliente;
@@ -34,24 +32,20 @@ public class AgregarRegistro extends Command {
         this.clienteMap = clienteMap;
     }
 
+    public AsesorId getAsesorId() {
+        return asesorId;
+    }
+
+    public TipoTrabajo getTipoTrabajo() {
+        return tipoTrabajo;
+    }
+
     public RegistroId getRegistroId() {
         return registroId;
     }
 
-    public VendedorId getVendedorId() {
-        return vendedorId;
-    }
-
     public Map<ClienteId, Cliente> getClienteMap() {
         return clienteMap;
-    }
-
-    public MecanicoId getMecanicoId() {
-        return mecanicoId;
-    }
-
-    public TipoTrabajo getTipoRegistro() {
-        return tipoTrabajo;
     }
 
     public Ingreso getIngreso() {
