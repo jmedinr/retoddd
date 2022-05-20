@@ -7,7 +7,10 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.generic.values.*;
 import co.com.sofkau.taller.asesor.value.RegistroId;
 import co.com.sofkau.taller.mecanico.commands.FinalizarGarantia;
-import co.com.sofkau.taller.mecanico.events.*;
+import co.com.sofkau.taller.mecanico.events.GarantiaAgregada;
+import co.com.sofkau.taller.mecanico.events.GarantiaFinalizada;
+import co.com.sofkau.taller.mecanico.events.InspeccionAgregada;
+import co.com.sofkau.taller.mecanico.events.MecanicoAsignado;
 import co.com.sofkau.taller.mecanico.value.*;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 import org.junit.jupiter.api.Assertions;
@@ -21,7 +24,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,7 +36,7 @@ class FinalizarGarantiaUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void finalizarGarantiaHappyPass(){
+    void finalizarGarantiaHappyPass() {
 
         var vendedorId = VendedorId.of("741");
         var mecanidoId = MecanicoId.of("1242");
@@ -44,8 +46,8 @@ class FinalizarGarantiaUseCaseTest {
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.GARANTIA);
         var estados = new Estados(Estados.Estado.ENPROCESO);
         var observacion = new Observacion("quedó mal instalada la palanquilla");
-        var command = new FinalizarGarantia(vendedorId,mecanidoId,registroId,gatantiaId,inspeccionId,
-                tipoTrabajo,estados,observacion);
+        var command = new FinalizarGarantia(vendedorId, mecanidoId, registroId, gatantiaId, inspeccionId,
+                tipoTrabajo, estados, observacion);
 
         when(repository.getEventsBy("1242")).thenReturn(history());
         useCase.addRepository(repository);
@@ -58,8 +60,8 @@ class FinalizarGarantiaUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (GarantiaFinalizada)events.get(0);
-        Assertions.assertEquals(Estados.Estado.FINALIZADO,event.getEstados().value());
+        var event = (GarantiaFinalizada) events.get(0);
+        Assertions.assertEquals(Estados.Estado.FINALIZADO, event.getEstados().value());
     }
 
     private List<DomainEvent> history() {
@@ -70,7 +72,7 @@ class FinalizarGarantiaUseCaseTest {
         var correo = new Correo("wilson@mecanico.com");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.GARANTIA);
 
-        var event = new MecanicoAsignado(vendedorId,registroId,nombre,telefono,correo,tipoTrabajo);
+        var event = new MecanicoAsignado(vendedorId, registroId, nombre, telefono, correo, tipoTrabajo);
 
         var inspeccionId = InspeccionId.of("47852");
         var diagnostico = new Diagnostico("palanquilla de luces requiere cambio, motor malo");
@@ -80,16 +82,16 @@ class FinalizarGarantiaUseCaseTest {
         listaRepuestosSet.add(repuesto1);
         listaRepuestosSet.add(repuesto2);
 
-        var event2 = new InspeccionAgregada(inspeccionId,diagnostico,listaRepuestosSet);
+        var event2 = new InspeccionAgregada(inspeccionId, diagnostico, listaRepuestosSet);
 
         var gatantiaId = GarantiaId.of("105");
         var estados = new Estados(Estados.Estado.ENPROCESO);
         var observacion = new Observacion("quedó mal instalada la palanquilla");
 
-        var event3 = new GarantiaAgregada(gatantiaId,tipoTrabajo,estados,observacion);
+        var event3 = new GarantiaAgregada(gatantiaId, tipoTrabajo, estados, observacion);
 
         event.setAggregateRootId("1242");
-        return List.of(event,event2,event3);
+        return List.of(event, event2, event3);
     }
 
 }

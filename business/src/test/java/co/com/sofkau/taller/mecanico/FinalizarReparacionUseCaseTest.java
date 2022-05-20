@@ -24,7 +24,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,7 +36,7 @@ class FinalizarReparacionUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void finalizarReparacionHappyPass(){
+    void finalizarReparacionHappyPass() {
         var vendedorId = VendedorId.of("741");
         var mecanidoId = MecanicoId.of("1242");
         var registroId = RegistroId.of("1012");
@@ -46,8 +45,8 @@ class FinalizarReparacionUseCaseTest {
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
         var estados = new Estados(Estados.Estado.ENPROCESO);
         var observacion = new Observacion("Se cambia palanquilla de luces y el motor");
-        var command = new FinalizarReparacion(vendedorId,mecanidoId,registroId,reparacionId,inspeccionId,
-                tipoTrabajo,estados,observacion);
+        var command = new FinalizarReparacion(vendedorId, mecanidoId, registroId, reparacionId, inspeccionId,
+                tipoTrabajo, estados, observacion);
 
         when(repository.getEventsBy("1242")).thenReturn(history());
         useCase.addRepository(repository);
@@ -60,8 +59,8 @@ class FinalizarReparacionUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (ReparacionFinalizada)events.get(0);
-        Assertions.assertEquals(Estados.Estado.FINALIZADO,event.getEstados().value());
+        var event = (ReparacionFinalizada) events.get(0);
+        Assertions.assertEquals(Estados.Estado.FINALIZADO, event.getEstados().value());
     }
 
     private List<DomainEvent> history() {
@@ -72,7 +71,7 @@ class FinalizarReparacionUseCaseTest {
         var correo = new Correo("wilson@mecanico.com");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
 
-        var event = new MecanicoAsignado(vendedorId,registroId,nombre,telefono,correo,tipoTrabajo);
+        var event = new MecanicoAsignado(vendedorId, registroId, nombre, telefono, correo, tipoTrabajo);
 
         var inspeccionId = InspeccionId.of("47852");
         var diagnostico = new Diagnostico("palanquilla de luces requiere cambio, motor malo");
@@ -82,16 +81,16 @@ class FinalizarReparacionUseCaseTest {
         listaRepuestosSet.add(repuesto1);
         listaRepuestosSet.add(repuesto2);
 
-        var event2 = new InspeccionAgregada(inspeccionId,diagnostico,listaRepuestosSet);
+        var event2 = new InspeccionAgregada(inspeccionId, diagnostico, listaRepuestosSet);
 
         var reparacionId = ReparacionId.of("87485");
         var estados = new Estados(Estados.Estado.ENPROCESO);
         var observacion = new Observacion("Se requiere cambio de palanquilla de luces y de motor");
 
-        var event3 = new ReparacionAgregada(reparacionId,tipoTrabajo,estados,observacion);
+        var event3 = new ReparacionAgregada(reparacionId, tipoTrabajo, estados, observacion);
 
         event.setAggregateRootId("1242");
-        return List.of(event,event2,event3);
+        return List.of(event, event2, event3);
     }
 
 }

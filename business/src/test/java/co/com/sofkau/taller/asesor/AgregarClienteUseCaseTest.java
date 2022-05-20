@@ -24,7 +24,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,7 +36,7 @@ class AgregarClienteUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarClienteHappyPass(){
+    void agregarClienteHappyPass() {
         //arrange
         var clienteId = ClienteId.of("875");
         var asesorId = AsesorId.of("1010");
@@ -45,7 +44,7 @@ class AgregarClienteUseCaseTest {
         var nombre = new Nombre("Pepito");
         var telefono = new Telefono("7845879856");
         var correo = new Correo("pepito@cliente.com");
-        var command = new AgregarCliente(clienteId,asesorId,documento,nombre,telefono,correo);
+        var command = new AgregarCliente(clienteId, asesorId, documento, nombre, telefono, correo);
 
         when(repository.getEventsBy("1010")).thenReturn(history());
         useCase.addRepository(repository);
@@ -58,8 +57,8 @@ class AgregarClienteUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (ClienteAgregado)events.get(0);
-        Assertions.assertEquals("7845879856",event.getTelefono().value());
+        var event = (ClienteAgregado) events.get(0);
+        Assertions.assertEquals("7845879856", event.getTelefono().value());
     }
 
     private List<DomainEvent> history() {
@@ -69,7 +68,7 @@ class AgregarClienteUseCaseTest {
         var mecanicoId = MecanicoId.of("1242");
         var vendedorId = VendedorId.of("741");
 
-        var event = new AsesorAsignado(nombre,telefono,correo,mecanicoId,vendedorId);
+        var event = new AsesorAsignado(nombre, telefono, correo, mecanicoId, vendedorId);
         event.setAggregateRootId("1010");
         return List.of(event);
     }

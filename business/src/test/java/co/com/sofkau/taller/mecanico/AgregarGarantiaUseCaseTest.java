@@ -21,7 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,13 +33,13 @@ class AgregarGarantiaUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarGarantiaHappyPass(){
+    void agregarGarantiaHappyPass() {
         var gatantiaId = GarantiaId.of("105");
         var mecanidoId = MecanicoId.of("1242");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.GARANTIA);
         var estados = new Estados(Estados.Estado.ENPROCESO);
         var observacion = new Observacion("quedó mal instalada la palanquilla");
-        var command = new AgregarGarantia(gatantiaId,mecanidoId,tipoTrabajo,estados,observacion);
+        var command = new AgregarGarantia(gatantiaId, mecanidoId, tipoTrabajo, estados, observacion);
 
         when(repository.getEventsBy("1242")).thenReturn(history());
         useCase.addRepository(repository);
@@ -53,7 +52,7 @@ class AgregarGarantiaUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (GarantiaAgregada)events.get(0);
+        var event = (GarantiaAgregada) events.get(0);
         Assertions.assertEquals(TipoTrabajo.Tipos.GARANTIA,
                 event.getTipoTrabajo().value());
 
@@ -66,7 +65,7 @@ class AgregarGarantiaUseCaseTest {
         var telefono = new Telefono("7845896854");
         var correo = new Correo("wilson@mecanico.com");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.GARANTIA);
-        var event = new MecanicoAsignado(vendedorId,registroId,nombre,telefono,correo,tipoTrabajo);
+        var event = new MecanicoAsignado(vendedorId, registroId, nombre, telefono, correo, tipoTrabajo);
         event.setAggregateRootId("1242");
         return List.of(event);
     }

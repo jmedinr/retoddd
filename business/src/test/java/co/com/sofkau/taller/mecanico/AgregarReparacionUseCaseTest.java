@@ -33,13 +33,13 @@ class AgregarReparacionUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarReparacionHappyPass(){
+    void agregarReparacionHappyPass() {
         var reparacionId = ReparacionId.of("87485");
         var mecanidoId = MecanicoId.of("1242");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
         var estados = new Estados(Estados.Estado.ENPROCESO);
         var observacion = new Observacion("Se requiere cambio de palanquilla de luces y de motor");
-        var command = new AgregarReparacion(reparacionId,mecanidoId,tipoTrabajo,estados,observacion);
+        var command = new AgregarReparacion(reparacionId, mecanidoId, tipoTrabajo, estados, observacion);
 
         when(repository.getEventsBy("1242")).thenReturn(history());
         useCase.addRepository(repository);
@@ -52,7 +52,7 @@ class AgregarReparacionUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (ReparacionAgregada)events.get(0);
+        var event = (ReparacionAgregada) events.get(0);
         Assertions.assertEquals(TipoTrabajo.Tipos.REPARACION,
                 event.getTipoTrabajo().value());
     }
@@ -64,7 +64,7 @@ class AgregarReparacionUseCaseTest {
         var telefono = new Telefono("7845896854");
         var correo = new Correo("wilson@mecanico.com");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
-        var event = new MecanicoAsignado(vendedorId,registroId,nombre,telefono,correo,tipoTrabajo);
+        var event = new MecanicoAsignado(vendedorId, registroId, nombre, telefono, correo, tipoTrabajo);
         event.setAggregateRootId("1242");
         return List.of(event);
     }

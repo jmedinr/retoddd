@@ -14,17 +14,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CrearAsesorUseCaseTest {
 
     private CrearAsesorUseCase useCase;
 
     @BeforeEach
-    public void setup(){ useCase = new CrearAsesorUseCase();}
+    public void setup() {
+        useCase = new CrearAsesorUseCase();
+    }
 
     @Test
-    public void crearAsesorHappyPass(){
+    public void crearAsesorHappyPass() {
         //arrange
         var asesorId = AsesorId.of("1010");
         var mecanidoId = MecanicoId.of("1242");
@@ -32,7 +32,7 @@ class CrearAsesorUseCaseTest {
         var nombre = new Nombre("Juan");
         var correo = new Correo("juand@taller.com");
         var telefono = new Telefono("0001458745");
-        var command = new AsignarAsesor(asesorId,mecanidoId,vendedorId,nombre,correo,telefono);
+        var command = new AsignarAsesor(asesorId, mecanidoId, vendedorId, nombre, correo, telefono);
 
         //act
         var events = UseCaseHandler.getInstance()
@@ -41,10 +41,10 @@ class CrearAsesorUseCaseTest {
                 .getDomainEvents();
 
         //asserts
-        var asesorAsignado = (AsesorAsignado)events.get(0);
-        Assertions.assertEquals("1010",asesorAsignado.aggregateRootId());
-        Assertions.assertEquals("Juan",asesorAsignado.getNombre().value());
-        Assertions.assertEquals("juand@taller.com",asesorAsignado.getCorreo().value());
+        var asesorAsignado = (AsesorAsignado) events.get(0);
+        Assertions.assertEquals("1010", asesorAsignado.aggregateRootId());
+        Assertions.assertEquals("Juan", asesorAsignado.getNombre().value());
+        Assertions.assertEquals("juand@taller.com", asesorAsignado.getCorreo().value());
     }
 
 }

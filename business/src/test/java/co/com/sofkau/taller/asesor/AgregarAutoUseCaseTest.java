@@ -37,13 +37,13 @@ class AgregarAutoUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarAutoHappyPass(){
+    void agregarAutoHappyPass() {
         //arrange
         var autoId = AutoId.of("88");
         var asesorId = AsesorId.of("1010");
         var marca = new Marca("Chevrolet");
         var placa = new Placa("XYZ785");
-        var command = new AgregarAuto(autoId,asesorId,marca,placa);
+        var command = new AgregarAuto(autoId, asesorId, marca, placa);
 
         when(repository.getEventsBy("1010")).thenReturn(history());
         useCase.addRepository(repository);
@@ -56,9 +56,9 @@ class AgregarAutoUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (AutoAgregado)events.get(0);
-        Assertions.assertEquals("Chevrolet",event.getMarca().value());
-        Assertions.assertEquals("XYZ785",event.getPlaca().value());
+        var event = (AutoAgregado) events.get(0);
+        Assertions.assertEquals("Chevrolet", event.getMarca().value());
+        Assertions.assertEquals("XYZ785", event.getPlaca().value());
     }
 
     private List<DomainEvent> history() {
@@ -68,7 +68,7 @@ class AgregarAutoUseCaseTest {
         var mecanicoId = MecanicoId.of("1242");
         var vendedorId = VendedorId.of("741");
 
-        var event = new AsesorAsignado(nombre,telefono,correo,mecanicoId,vendedorId);
+        var event = new AsesorAsignado(nombre, telefono, correo, mecanicoId, vendedorId);
         event.setAggregateRootId("1010");
         return List.of(event);
     }

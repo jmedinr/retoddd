@@ -39,7 +39,7 @@ class AgregarRegistroUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarRegistroHappyPass(){
+    void agregarRegistroHappyPass() {
         //arrange
         var registroId = RegistroId.of("1012");
         var asesorId = AsesorId.of("1010");
@@ -48,7 +48,7 @@ class AgregarRegistroUseCaseTest {
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
         var ingreso = new Ingreso(LocalDateTime.now(), LocalDate.now());
         var autorizacionCliente = new AutorizacionCliente(AutorizacionCliente.Autorizacion.AUTORIZADO);
-        var command = new AgregarRegistro(registroId,asesorId,clienteId,autoId,tipoTrabajo,ingreso,
+        var command = new AgregarRegistro(registroId, asesorId, clienteId, autoId, tipoTrabajo, ingreso,
                 autorizacionCliente);
 
         when(repository.getEventsBy("1010")).thenReturn(history());
@@ -63,8 +63,8 @@ class AgregarRegistroUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (RegistroExitoso)events.get(0);
-        Assertions.assertEquals(AutorizacionCliente.Autorizacion.AUTORIZADO,event.getAutorizacionCliente().value());
+        var event = (RegistroExitoso) events.get(0);
+        Assertions.assertEquals(AutorizacionCliente.Autorizacion.AUTORIZADO, event.getAutorizacionCliente().value());
 
     }
 
@@ -75,21 +75,21 @@ class AgregarRegistroUseCaseTest {
         var mecanicoId = MecanicoId.of("1242");
         var vendedorId = VendedorId.of("741");
 
-        var event = new AsesorAsignado(nombre,telefono,correo,mecanicoId,vendedorId);
+        var event = new AsesorAsignado(nombre, telefono, correo, mecanicoId, vendedorId);
 
         var clienteId = ClienteId.of("875");
         var documento = new Documento("78459524");
 
-        var event2 = new ClienteAgregado(clienteId,documento,nombre,telefono,correo);
+        var event2 = new ClienteAgregado(clienteId, documento, nombre, telefono, correo);
 
         var autoId = AutoId.of("88");
         var marca = new Marca("Chevrolet");
         var placa = new Placa("XYZ785");
 
-        var event3 = new AutoAgregado(autoId,marca,placa);
+        var event3 = new AutoAgregado(autoId, marca, placa);
 
         event.setAggregateRootId("1010");
-        return List.of(event,event2,event3);
+        return List.of(event, event2, event3);
     }
 
 }

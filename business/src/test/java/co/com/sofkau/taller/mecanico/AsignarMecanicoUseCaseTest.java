@@ -15,17 +15,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class AsignarMecanicoUseCaseTest {
 
     private AsignarMecanicoUseCase useCase;
 
     @BeforeEach
-    public void setup(){ useCase = new AsignarMecanicoUseCase();}
+    public void setup() {
+        useCase = new AsignarMecanicoUseCase();
+    }
 
     @Test
-    public void asignarMecanicoHappyPass(){
+    public void asignarMecanicoHappyPass() {
         //arrange
         var vendedorId = VendedorId.of("741");
         var mecanidoId = MecanicoId.of("1242");
@@ -34,7 +34,7 @@ class AsignarMecanicoUseCaseTest {
         var telefono = new Telefono("7845896854");
         var correo = new Correo("wilson@mecanico.com");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
-        var command = new AsignarMecanico(vendedorId,mecanidoId,registroId,nombre,telefono,correo,tipoTrabajo);
+        var command = new AsignarMecanico(vendedorId, mecanidoId, registroId, nombre, telefono, correo, tipoTrabajo);
 
         //act
         var events = UseCaseHandler.getInstance()
@@ -43,10 +43,10 @@ class AsignarMecanicoUseCaseTest {
                 .getDomainEvents();
 
         //asserts
-        var mecanicoAsignado = (MecanicoAsignado)events.get(0);
-        Assertions.assertEquals("1242",mecanicoAsignado.aggregateRootId());
-        Assertions.assertEquals("Wilson",mecanicoAsignado.getNombre().value());
-        Assertions.assertEquals("7845896854",mecanicoAsignado.getTelefono().value());
-        Assertions.assertEquals("wilson@mecanico.com",mecanicoAsignado.getCorreo().value());
+        var mecanicoAsignado = (MecanicoAsignado) events.get(0);
+        Assertions.assertEquals("1242", mecanicoAsignado.aggregateRootId());
+        Assertions.assertEquals("Wilson", mecanicoAsignado.getNombre().value());
+        Assertions.assertEquals("7845896854", mecanicoAsignado.getTelefono().value());
+        Assertions.assertEquals("wilson@mecanico.com", mecanicoAsignado.getCorreo().value());
     }
 }
