@@ -13,19 +13,19 @@ public class DatosAuto implements ValueObject<DatosAuto.Value> {
         this.marca = Objects.requireNonNull(marca);
         this.placa = Objects.requireNonNull(placa);
 
-        if(this.marca.isBlank()){
+        if (this.marca.isBlank()) {
             throw new IllegalArgumentException("El marca del carro no puede estar en blanco");
         }
 
-        if(this.marca.length() > 50){
+        if (this.marca.length() > 50) {
             throw new IllegalArgumentException("La Marca del carro no permite mas de 50 caracteres");
         }
 
-        if(this.placa.isBlank()){
+        if (this.placa.isBlank()) {
             throw new IllegalArgumentException("La placa no puede estar en blanco");
         }
 
-        if(this.placa.length() > 6){
+        if (this.placa.length() > 6) {
             throw new IllegalArgumentException("La placa no permite mas de 6 caracteres");
         }
     }
@@ -45,12 +45,6 @@ public class DatosAuto implements ValueObject<DatosAuto.Value> {
         };
     }
 
-    public interface Value {
-        String marca();
-
-        String placa();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,5 +56,11 @@ public class DatosAuto implements ValueObject<DatosAuto.Value> {
     @Override
     public int hashCode() {
         return Objects.hash(marca, placa);
+    }
+
+    public interface Value {
+        String marca();
+
+        String placa();
     }
 }

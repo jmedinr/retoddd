@@ -66,7 +66,7 @@ public class Mecanico extends AggregateEvent<MecanicoId> {
             var estadoFinalizado = reparacionMap.get(idReparacion)
                     .estados
                     .finalizar();
-            appendChange(new ReparacionFinalizada(vendedorId, registroId,idReparacion, estadoFinalizado, observacion, inspeccionMap));
+            appendChange(new ReparacionFinalizada(vendedorId, registroId, idReparacion, estadoFinalizado, observacion, inspeccionMap));
         }
         if (tipoTrabajo.equals("GARANTIA")) {
             var idGarantia = garantiaMap.keySet().
@@ -76,7 +76,7 @@ public class Mecanico extends AggregateEvent<MecanicoId> {
             var estadoFinalizado = garantiaMap.get(idGarantia)
                     .estados
                     .finalizar();
-            appendChange(new GarantiaFinalizada(vendedorId, registroId, idGarantia,estadoFinalizado, observacion, inspeccionMap));
+            appendChange(new GarantiaFinalizada(vendedorId, registroId, idGarantia, estadoFinalizado, observacion, inspeccionMap));
         }
     }
 }

@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class VendedorEventChange extends EventChange {
     public VendedorEventChange(Vendedor vendedor) {
-        apply((VendedorAsignado event)->{
+        apply((VendedorAsignado event) -> {
             vendedor.nombre = event.getNombre();
             vendedor.telefono = event.getTelefono();
             vendedor.correo = event.getCorreo();
@@ -24,30 +24,28 @@ public class VendedorEventChange extends EventChange {
             vendedor.factura = new HashMap<>();
         });
 
-        apply((VentaGenerada event)->{
+        apply((VentaGenerada event) -> {
             var ventaId = new VentaId();
-            var venta = new Venta(ventaId,event.getTipoPago(),event.getMetodoPago(),event.getValorReparacion());
-            vendedor.venta.put(ventaId,venta);
+            var venta = new Venta(ventaId, event.getTipoPago(), event.getMetodoPago(), event.getValorReparacion());
+            vendedor.venta.put(ventaId, venta);
         });
 
-        apply((CompraGenerada event)->{
-           var compraId = new CompraId();
-           var compra = new Compra(compraId,event.getValorCompra());
-           vendedor.compra.put(compraId,compra);
+        apply((CompraGenerada event) -> {
+            var compraId = new CompraId();
+            var compra = new Compra(compraId, event.getValorCompra());
+            vendedor.compra.put(compraId, compra);
         });
 
-        apply((EntregaRealizada event)->{
+        apply((EntregaRealizada event) -> {
             var entregaId = new EntregaId();
-            var entrega = new Entrega(entregaId,event.getSalida(),event.getValorTotal());
-            vendedor.entrega.put(entregaId,entrega);
+            var entrega = new Entrega(entregaId, event.getSalida(), event.getValorTotal());
+            vendedor.entrega.put(entregaId, entrega);
         });
 
-        apply((FacturaGenerada event)->{
+        apply((FacturaGenerada event) -> {
             var facturaId = new FacturaId();
-            var factura = new Factura(facturaId,event.getDatosCliente(),event.getDatosEmpresa(),event.getDatosAuto(),
-                    event.getListaRepuestosSet(),event.getValorCompra(),
-                    event.getValorReparacion(),event.getValorTotal());
-            vendedor.factura.put(facturaId,factura);
+            var factura = new Factura(facturaId, event.getTuplaFacturas(), event.getVendedorId());
+            vendedor.factura.put(facturaId, factura);
         });
     }
 }

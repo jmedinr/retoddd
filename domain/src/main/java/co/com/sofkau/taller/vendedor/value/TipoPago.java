@@ -16,10 +16,6 @@ public class TipoPago implements ValueObject<TipoPago.Pago> {
         return value;
     }
 
-    public enum Pago{
-        CREDITO, CONTADO
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,5 +27,9 @@ public class TipoPago implements ValueObject<TipoPago.Pago> {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public enum Pago {
+        CREDITO, CONTADO
     }
 }

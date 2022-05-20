@@ -31,11 +31,6 @@ public class Ingreso implements ValueObject<Ingreso.Pros> {
         };
     }
 
-    public interface Pros {
-        LocalDateTime horaingreso();
-        LocalDate diaIngreso();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,5 +42,11 @@ public class Ingreso implements ValueObject<Ingreso.Pros> {
     @Override
     public int hashCode() {
         return Objects.hash(horaingreso, diaIngreso);
+    }
+
+    public interface Pros {
+        LocalDateTime horaingreso();
+
+        LocalDate diaIngreso();
     }
 }

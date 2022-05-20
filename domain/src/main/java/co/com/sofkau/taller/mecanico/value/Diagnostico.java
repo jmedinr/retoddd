@@ -9,11 +9,11 @@ public class Diagnostico implements ValueObject<String> {
 
     public Diagnostico(String value) {
         this.value = Objects.requireNonNull(value);
-        if(this.value.isBlank()){
+        if (this.value.isBlank()) {
             throw new IllegalArgumentException("El diagnostico no puede estar en blanco");
         }
 
-        if(this.value.length() > 500){
+        if (this.value.length() > 500) {
             throw new IllegalArgumentException("El diagnostico no permite mas de 500 caracteres");
         }
     }

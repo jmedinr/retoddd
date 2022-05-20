@@ -30,38 +30,36 @@ public class Vendedor extends AggregateEvent<VendedorId> {
     public Vendedor(VendedorId entityId, Nombre nombre, Telefono telefono, Correo correo,
                     Set<Cliente> clienteSet, Set<Auto> autoSet, Set<ListaRepuestos> listaRepuestosSet) {
         super(entityId);
-        appendChange(new VendedorAsignado(nombre, telefono, correo,clienteSet,autoSet,listaRepuestosSet));
+        appendChange(new VendedorAsignado(entityId, nombre, telefono, correo, clienteSet, autoSet, listaRepuestosSet));
         subscribe(new VendedorEventChange(this));
     }
 
-    private Vendedor(VendedorId entityId){
+    private Vendedor(VendedorId entityId) {
         super(entityId);
         subscribe(new VendedorEventChange(this));
     }
 
-    public static Vendedor from(VendedorId entityId, List<DomainEvent> events){
+    public static Vendedor from(VendedorId entityId, List<DomainEvent> events) {
         var vendedor = new Vendedor(entityId);
         events.forEach(vendedor::applyEvent);
         return vendedor;
     }
 
-    public void crearCompra(ValorCompra compra){
-        appendChange(new CompraGenerada(compra)).apply();
+    public void crearCompra(VendedorId vendedorId, ValorCompra compra) {
+        appendChange(new CompraGenerada(vendedorId, compra)).apply();
     }
 
-    public void CrearVenta(TipoPago tipoPago, MetodoPago metodoPago, ValorReparacion valorReparacion){
-        appendChange(new VentaGenerada(tipoPago,metodoPago,valorReparacion)).apply();
+    public void crearVenta(VendedorId vendedorId, TipoPago tipoPago, MetodoPago metodoPago, ValorReparacion valorReparacion) {
+        appendChange(new VentaGenerada(vendedorId, tipoPago, metodoPago, valorReparacion)).apply();
     }
 
-    public void crearEntrega(Salida salida, ValorTotal valorTotal){
-        appendChange(new EntregaRealizada(salida,valorTotal)).apply();
+    public void crearEntrega(VendedorId vendedorId, Salida salida, ValorTotal valorTotal) {
+        appendChange(new EntregaRealizada(vendedorId, salida, valorTotal)).apply();
     }
 
-    public void crearFactura(DatosCliente datosCliente, Set<DatosEmpresa> datosEmpresa,
-                             Set<DatosAuto> datosAuto, Set<ListaRepuestos> listaRepuestosSet,
-                             ValorCompra valorCompra, ValorReparacion valorReparacion,
-                             ValorTotal valorTotal){
-        appendChange(new FacturaGenerada(datosCliente,datosEmpresa,datosAuto,listaRepuestosSet,
-                valorCompra,valorReparacion,valorTotal)).apply();
+    public void crearFactura(List<FacturaGenerada.TuplaFactura> tuplaFacturas, VendedorId vendedorId) {
+        appendChange(new FacturaGenerada(tuplaFacturas, vendedorId)).apply();
+
+
     }
 }

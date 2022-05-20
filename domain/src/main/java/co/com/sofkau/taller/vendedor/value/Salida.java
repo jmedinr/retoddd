@@ -31,11 +31,6 @@ public class Salida implements ValueObject<Salida.Pros> {
         };
     }
 
-    public interface Pros {
-        LocalDateTime horaSalida();
-        LocalDate diaSalida();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,5 +42,11 @@ public class Salida implements ValueObject<Salida.Pros> {
     @Override
     public int hashCode() {
         return Objects.hash(horaSalida, diaSalida);
+    }
+
+    public interface Pros {
+        LocalDateTime horaSalida();
+
+        LocalDate diaSalida();
     }
 }

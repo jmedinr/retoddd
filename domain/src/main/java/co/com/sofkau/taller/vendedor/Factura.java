@@ -1,57 +1,27 @@
 package co.com.sofkau.taller.vendedor;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofkau.taller.mecanico.value.ListaRepuestos;
-import co.com.sofkau.taller.vendedor.value.*;
+import co.com.sofkau.taller.vendedor.events.FacturaGenerada;
+import co.com.sofkau.taller.vendedor.value.FacturaId;
+import co.com.sofkau.taller.vendedor.value.VendedorId;
 
-import java.util.Set;
+import java.util.List;
 
 public class Factura extends Entity<FacturaId> {
-    protected DatosCliente datosCliente;
-    protected Set<DatosEmpresa> datosEmpresa;
-    protected Set<DatosAuto> datosAuto;
-    protected Set<ListaRepuestos> listaRepuestosSet;
-    protected ValorCompra valorCompra;
-    protected ValorReparacion valorReparacion;
-    protected ValorTotal valorTotal;
+    protected List<FacturaGenerada.TuplaFactura> tuplaFacturas;
+    protected VendedorId vendedorId;
 
-    public Factura(FacturaId entityId, DatosCliente datosCliente, Set<DatosEmpresa> datosEmpresa, Set<DatosAuto> datosAuto, Set<ListaRepuestos> listaRepuestosSet,
-                   ValorCompra valorCompra, ValorReparacion valorReparacion, ValorTotal valorTotal) {
+    public Factura(FacturaId entityId, List<FacturaGenerada.TuplaFactura> tuplaFacturas, VendedorId vendedorId) {
         super(entityId);
-        this.datosCliente = datosCliente;
-        this.datosEmpresa = datosEmpresa;
-        this.datosAuto = datosAuto;
-        this.listaRepuestosSet = listaRepuestosSet;
-        this.valorCompra = valorCompra;
-        this.valorReparacion = valorReparacion;
-        this.valorTotal = valorTotal;
+        this.tuplaFacturas = tuplaFacturas;
+        this.vendedorId = vendedorId;
     }
 
-    public DatosCliente getDatosCliente() {
-        return datosCliente;
+    public List<FacturaGenerada.TuplaFactura> getTuplaFacturas() {
+        return tuplaFacturas;
     }
 
-    public Set<DatosEmpresa> getDatosEmpresa() {
-        return datosEmpresa;
-    }
-
-    public Set<DatosAuto> getDatosAuto() {
-        return datosAuto;
-    }
-
-    public Set<ListaRepuestos> getListaRepuestosSet() {
-        return listaRepuestosSet;
-    }
-
-    public ValorCompra getValorCompra() {
-        return valorCompra;
-    }
-
-    public ValorReparacion getValorReparacion() {
-        return valorReparacion;
-    }
-
-    public ValorTotal getValorTotal() {
-        return valorTotal;
+    public VendedorId getVendedorId() {
+        return vendedorId;
     }
 }

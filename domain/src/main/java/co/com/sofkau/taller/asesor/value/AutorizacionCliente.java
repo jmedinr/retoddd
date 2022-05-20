@@ -16,10 +16,6 @@ public class AutorizacionCliente implements ValueObject<AutorizacionCliente.Auto
         return value;
     }
 
-    public enum Autorizacion{
-        AUTORIZADO, NOAUTORIZADO
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,5 +27,9 @@ public class AutorizacionCliente implements ValueObject<AutorizacionCliente.Auto
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public enum Autorizacion {
+        AUTORIZADO, NOAUTORIZADO
     }
 }

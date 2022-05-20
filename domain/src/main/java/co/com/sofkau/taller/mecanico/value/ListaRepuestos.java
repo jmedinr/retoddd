@@ -9,11 +9,11 @@ public class ListaRepuestos implements ValueObject<String> {
 
     public ListaRepuestos(String value) {
         this.value = Objects.requireNonNull(value);
-        if(this.value.isBlank()){
+        if (this.value.isBlank()) {
             throw new IllegalArgumentException("La lista de repuestos no puede estar en blanco");
         }
 
-        if(this.value.length() > 30){
+        if (this.value.length() > 30) {
             throw new IllegalArgumentException("El diagnostico no permite mas de 30 caracteres");
         }
     }

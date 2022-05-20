@@ -17,10 +17,6 @@ public class TipoTrabajo implements ValueObject<TipoTrabajo.Tipos> {
         return value;
     }
 
-    public enum Tipos{
-        REPARACION, GARANTIA
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,5 +28,9 @@ public class TipoTrabajo implements ValueObject<TipoTrabajo.Tipos> {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public enum Tipos {
+        REPARACION, GARANTIA
     }
 }

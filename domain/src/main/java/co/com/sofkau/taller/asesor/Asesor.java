@@ -34,31 +34,31 @@ public class Asesor extends AggregateEvent<AsesorId> {
         subscribe(new AsesorEventChange(this));
     }
 
-    private Asesor(AsesorId entityId){
+    private Asesor(AsesorId entityId) {
         super(entityId);
         subscribe(new AsesorEventChange(this));
     }
 
-    public static Asesor from(AsesorId entityId, List<DomainEvent> events){
+    public static Asesor from(AsesorId entityId, List<DomainEvent> events) {
         var curso = new Asesor(entityId);
         events.forEach(curso::applyEvent);
         return curso;
     }
 
-    public void agregarRegistro(TipoTrabajo tipoTrabajo, Ingreso ingreso, AutorizacionCliente autorizacionCliente){
+    public void agregarRegistro(TipoTrabajo tipoTrabajo, Ingreso ingreso, AutorizacionCliente autorizacionCliente) {
         var registroId = new RegistroId();
-        appendChange(new RegistroExitoso(registroId,this.mecanicoId,this.vendedorId,tipoTrabajo,ingreso,
-                autorizacionCliente,this.clienteMap,this.autoMap)).apply();
+        appendChange(new RegistroExitoso(registroId, this.mecanicoId, this.vendedorId, tipoTrabajo, ingreso,
+                autorizacionCliente, this.clienteMap, this.autoMap)).apply();
     }
 
-    public void agregarCliente( Documento documento, Nombre nombre, Telefono telefono, Correo correo){
+    public void agregarCliente(Documento documento, Nombre nombre, Telefono telefono, Correo correo) {
         var clienteId = new ClienteId();
-        appendChange(new ClienteAgregado(clienteId,documento,nombre,telefono,correo)).apply();
+        appendChange(new ClienteAgregado(clienteId, documento, nombre, telefono, correo)).apply();
     }
 
-    public void agregarAuto( Marca marca, Placa placa){
+    public void agregarAuto(Marca marca, Placa placa) {
         var autoId = new AutoId();
-        appendChange(new AutoAgregado(autoId,marca,placa)).apply();
+        appendChange(new AutoAgregado(autoId, marca, placa)).apply();
     }
 
     public MecanicoId mecanicoId() {

@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.Identity;
 
 public class InspeccionId extends Identity {
 
-    public InspeccionId(String id){
+    public InspeccionId(String id) {
         super(id);
     }
 

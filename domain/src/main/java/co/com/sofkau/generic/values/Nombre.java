@@ -10,11 +10,11 @@ public class Nombre implements ValueObject<String> {
     public Nombre(String value) {
         this.value = Objects.requireNonNull(value);
 
-        if(this.value.isBlank()){
+        if (this.value.isBlank()) {
             throw new IllegalArgumentException("El nombre no puede estar en blanco");
         }
 
-        if(this.value.length() > 50){
+        if (this.value.length() > 50) {
             throw new IllegalArgumentException("El nombre no permite mas de 50 caracteres");
         }
     }

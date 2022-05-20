@@ -6,7 +6,6 @@ import co.com.sofkau.generic.values.Nombre;
 import co.com.sofkau.generic.values.Telefono;
 import co.com.sofkau.taller.asesor.value.ClienteId;
 import co.com.sofkau.taller.asesor.value.Documento;
-import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 public class ClienteAgregado extends DomainEvent {
     private final ClienteId clienteId;

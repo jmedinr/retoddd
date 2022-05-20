@@ -9,7 +9,7 @@ public class ValorReparacion implements ValueObject<Integer> {
 
     public ValorReparacion(Integer value) {
         this.value = Objects.requireNonNull(value);
-        if(this.value<0){
+        if (this.value < 0) {
             throw new IllegalArgumentException("El valor de la reparacion no puede ser menor que cero");
         }
     }

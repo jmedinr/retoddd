@@ -16,10 +16,6 @@ public class MetodoPago implements ValueObject<MetodoPago.Metodo> {
         return value;
     }
 
-    public enum Metodo{
-        EFECTIVO, TRANSFERENCIA
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,5 +27,9 @@ public class MetodoPago implements ValueObject<MetodoPago.Metodo> {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public enum Metodo {
+        EFECTIVO, TRANSFERENCIA
     }
 }

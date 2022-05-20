@@ -3,7 +3,7 @@ package co.com.sofkau.taller.mecanico.value;
 import co.com.sofka.domain.generic.Identity;
 
 public class GarantiaId extends Identity {
-    public GarantiaId(String id){
+    public GarantiaId(String id) {
         super(id);
     }
 

@@ -4,55 +4,85 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.taller.mecanico.value.ListaRepuestos;
 import co.com.sofkau.taller.vendedor.value.*;
 
+import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 public class FacturaGenerada extends DomainEvent {
-    private final DatosCliente datosCliente;
-    private final Set<DatosEmpresa> datosEmpresa;
-    private final Set<DatosAuto> datosAuto;
-    private final Set<ListaRepuestos> listaRepuestosSet;
-    private final ValorCompra valorCompra;
-    private final ValorReparacion valorReparacion;
-    private final ValorTotal valorTotal;
+    private final List<TuplaFactura> tuplaFacturas;
+    private final VendedorId vendedorId;
 
-    public FacturaGenerada(DatosCliente datosCliente, Set<DatosEmpresa> datosEmpresa, Set<DatosAuto> datosAuto,
-                           Set<ListaRepuestos> listaRepuestosSet, ValorCompra valorCompra,
-                           ValorReparacion valorReparacion, ValorTotal valorTotal) {
-        super("co.com.sofkau.taller.FacturaGenerada");
-        this.datosCliente = datosCliente;
-        this.datosEmpresa = datosEmpresa;
-        this.datosAuto = datosAuto;
-        this.listaRepuestosSet = listaRepuestosSet;
-        this.valorCompra = valorCompra;
-        this.valorReparacion = valorReparacion;
-        this.valorTotal = valorTotal;
+    public FacturaGenerada(List<TuplaFactura> tuplaFacturas, VendedorId vendedorId) {
+        super("co.com.sofkau.taller.FacrturaGenerada");
+        this.tuplaFacturas = tuplaFacturas;
+        this.vendedorId = vendedorId;
     }
 
-    public DatosCliente getDatosCliente() {
-        return datosCliente;
+    public List<TuplaFactura> getTuplaFacturas() {
+        return tuplaFacturas;
     }
 
-    public Set<DatosEmpresa> getDatosEmpresa() {
-        return datosEmpresa;
+    public VendedorId getVendedorId() {
+        return vendedorId;
     }
 
-    public Set<DatosAuto> getDatosAuto() {
-        return datosAuto;
-    }
+    public static class TuplaFactura implements Serializable {
+        private FacturaId facturaId;
+        private DatosCliente datosCliente;
+        private Set<DatosEmpresa> datosEmpresa;
+        private Set<DatosAuto> datosAuto;
+        private Set<ListaRepuestos> listaRepuestosSet;
+        private ValorCompra valorCompra;
+        private ValorReparacion valorReparacion;
+        private ValorTotal valorTotal;
 
-    public Set<ListaRepuestos> getListaRepuestosSet() {
-        return listaRepuestosSet;
-    }
+        public TuplaFactura(FacturaId facturaId, DatosCliente datosCliente, Set<DatosEmpresa> datosEmpresa,
+                            Set<DatosAuto> datosAuto, Set<ListaRepuestos> listaRepuestosSet,
+                            ValorCompra valorCompra, ValorReparacion valorReparacion, ValorTotal valorTotal) {
+            this.facturaId = facturaId;
+            this.datosCliente = datosCliente;
+            this.datosEmpresa = datosEmpresa;
+            this.datosAuto = datosAuto;
+            this.listaRepuestosSet = listaRepuestosSet;
+            this.valorCompra = valorCompra;
+            this.valorReparacion = valorReparacion;
+            this.valorTotal = valorTotal;
+        }
 
-    public ValorCompra getValorCompra() {
-        return valorCompra;
-    }
+        public TuplaFactura() {
 
-    public ValorReparacion getValorReparacion() {
-        return valorReparacion;
-    }
+        }
 
-    public ValorTotal getValorTotal() {
-        return valorTotal;
+        public FacturaId getFacturaId() {
+            return facturaId;
+        }
+
+        public DatosCliente getDatosCliente() {
+            return datosCliente;
+        }
+
+        public Set<DatosEmpresa> getDatosEmpresa() {
+            return datosEmpresa;
+        }
+
+        public Set<DatosAuto> getDatosAuto() {
+            return datosAuto;
+        }
+
+        public Set<ListaRepuestos> getListaRepuestosSet() {
+            return listaRepuestosSet;
+        }
+
+        public ValorCompra getValorCompra() {
+            return valorCompra;
+        }
+
+        public ValorReparacion getValorReparacion() {
+            return valorReparacion;
+        }
+
+        public ValorTotal getValorTotal() {
+            return valorTotal;
+        }
     }
 }

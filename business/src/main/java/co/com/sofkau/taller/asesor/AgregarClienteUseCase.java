@@ -3,11 +3,7 @@ package co.com.sofkau.taller.asesor;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
-import co.com.sofkau.generic.values.Correo;
-import co.com.sofkau.generic.values.Nombre;
-import co.com.sofkau.generic.values.Telefono;
 import co.com.sofkau.taller.asesor.commands.AgregarCliente;
-import co.com.sofkau.taller.asesor.value.Documento;
 
 public class AgregarClienteUseCase extends UseCase<RequestCommand<AgregarCliente>, ResponseEvents> {
 
@@ -15,8 +11,16 @@ public class AgregarClienteUseCase extends UseCase<RequestCommand<AgregarCliente
     public void executeUseCase(RequestCommand<AgregarCliente> agregarClienteRequestCommand) {
         var command = agregarClienteRequestCommand.getCommand();
 
-        var asesor = Asesor.from()
+        var asesor = Asesor.from(command.getAsesorId(),
+                repository().getEventsBy(command.getAsesorId().value()));
 
-        emit().onResponse(new ResponseEvents(cliente.));
+        asesor.agregarCliente(
+                command.getDocumento(),
+                command.getNombre(),
+                command.getTelefono(),
+                command.getCorreo()
+        );
+
+        emit().onResponse(new ResponseEvents(asesor.getUncommittedChanges()));
     }
 }

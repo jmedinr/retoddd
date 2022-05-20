@@ -1,10 +1,9 @@
 package co.com.sofkau.taller.vendedor.value;
 
 import co.com.sofka.domain.generic.Identity;
-import co.com.sofkau.taller.asesor.value.AsesorId;
 
 public class CompraId extends Identity {
-    public CompraId(String id){
+    public CompraId(String id) {
         super(id);
     }
 

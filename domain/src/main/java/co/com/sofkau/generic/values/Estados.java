@@ -16,10 +16,6 @@ public class Estados implements ValueObject<Estados.Estado> {
         return value;
     }
 
-    public enum Estado {
-        ENPROCESO, FINALIZADO
-    }
-
     public Estados finalizar() {
         return new Estados(Estado.FINALIZADO);
     }
@@ -35,5 +31,9 @@ public class Estados implements ValueObject<Estados.Estado> {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    public enum Estado {
+        ENPROCESO, FINALIZADO
     }
 }

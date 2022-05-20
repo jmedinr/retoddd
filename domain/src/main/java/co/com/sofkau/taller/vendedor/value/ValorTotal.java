@@ -13,14 +13,14 @@ public class ValorTotal implements ValueObject<Integer> {
         this.value = Objects.requireNonNull(value);
         this.valorCompra = Objects.requireNonNull(valorCompra);
         this.valorReparacion = Objects.requireNonNull(valorReparacion);
-        if(this.value<0){
+        if (this.value < 0) {
             throw new IllegalArgumentException("El valor total no puede ser menor que cero");
         }
     }
 
     @Override
     public Integer value() {
-        return valorCompra.value()+valorReparacion.value();
+        return valorCompra.value() + valorReparacion.value();
     }
 
     @Override

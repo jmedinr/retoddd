@@ -9,11 +9,11 @@ public class Placa implements ValueObject<String> {
 
     public Placa(String value) {
         this.value = Objects.requireNonNull(value);
-        if(this.value.isBlank()){
+        if (this.value.isBlank()) {
             throw new IllegalArgumentException("La placa no puede estar en blanco");
         }
 
-        if(this.value.length() > 6){
+        if (this.value.length() > 6) {
             throw new IllegalArgumentException("La placa no permite mas de 6 caracteres");
         }
     }

@@ -3,7 +3,7 @@ package co.com.sofkau.taller.vendedor.value;
 import co.com.sofka.domain.generic.Identity;
 
 public class VentaId extends Identity {
-    public VentaId(String id){
+    public VentaId(String id) {
         super(id);
     }
 

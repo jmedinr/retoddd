@@ -11,11 +11,11 @@ public class Observacion implements ValueObject<String> {
     public Observacion(String value) {
         this.value = Objects.requireNonNull(value);
 
-        if(this.value.isBlank()){
+        if (this.value.isBlank()) {
             throw new IllegalArgumentException("La Observacion no puede estar en blanco");
         }
 
-        if(this.value.length() > 500){
+        if (this.value.length() > 500) {
             throw new IllegalArgumentException("El Observacion no permite mas de 500 caracteres");
         }
     }

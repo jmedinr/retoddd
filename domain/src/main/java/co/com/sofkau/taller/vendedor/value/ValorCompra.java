@@ -9,7 +9,7 @@ public class ValorCompra implements ValueObject<Integer> {
 
     public ValorCompra(Integer value) {
         this.value = Objects.requireNonNull(value);
-        if(this.value<0){
+        if (this.value < 0) {
             throw new IllegalArgumentException("El valor de la compra no puede ser menor que cero");
         }
     }

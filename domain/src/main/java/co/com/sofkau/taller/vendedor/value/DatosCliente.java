@@ -10,11 +10,11 @@ public class DatosCliente implements ValueObject<String> {
 
     public DatosCliente(String nombre) {
         this.nombre = Objects.requireNonNull(nombre);
-        if(this.nombre.isBlank()){
+        if (this.nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre del cliente no puede estar en blanco");
         }
 
-        if(this.nombre.length() > 50){
+        if (this.nombre.length() > 50) {
             throw new IllegalArgumentException("El nombre no permite mas de 50 caracteres");
         }
     }

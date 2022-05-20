@@ -13,19 +13,19 @@ public class DatosEmpresa implements ValueObject<DatosEmpresa.Value> {
         this.nombreEmpresa = Objects.requireNonNull(nombreEmpresa);
         this.descripcion = Objects.requireNonNull(descripcion);
 
-        if(this.nombreEmpresa.isBlank()){
+        if (this.nombreEmpresa.isBlank()) {
             throw new IllegalArgumentException("El nombre de la empresa no puede estar en blanco");
         }
 
-        if(this.nombreEmpresa.length() > 50){
+        if (this.nombreEmpresa.length() > 50) {
             throw new IllegalArgumentException("El nombre de la empresa no permite mas de 50 caracteres");
         }
 
-        if(this.descripcion.isBlank()){
+        if (this.descripcion.isBlank()) {
             throw new IllegalArgumentException("La Descripción no puede estar en blanco");
         }
 
-        if(this.descripcion.length() > 500){
+        if (this.descripcion.length() > 500) {
             throw new IllegalArgumentException("La Descripción no permite mas de 500 caracteres");
         }
     }
@@ -45,12 +45,6 @@ public class DatosEmpresa implements ValueObject<DatosEmpresa.Value> {
         };
     }
 
-    public interface Value {
-        String nombreEmpresa();
-
-        String descripcion();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,5 +56,11 @@ public class DatosEmpresa implements ValueObject<DatosEmpresa.Value> {
     @Override
     public int hashCode() {
         return Objects.hash(nombreEmpresa, descripcion);
+    }
+
+    public interface Value {
+        String nombreEmpresa();
+
+        String descripcion();
     }
 }

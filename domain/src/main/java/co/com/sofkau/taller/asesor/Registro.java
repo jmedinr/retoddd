@@ -1,8 +1,8 @@
 package co.com.sofkau.taller.asesor;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofkau.taller.asesor.value.*;
 import co.com.sofkau.generic.values.TipoTrabajo;
+import co.com.sofkau.taller.asesor.value.*;
 
 import java.util.Map;
 

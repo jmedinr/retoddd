@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class AsesorEventChange extends EventChange {
     public AsesorEventChange(Asesor asesor) {
-        apply((AsesorAsignado event) ->{
+        apply((AsesorAsignado event) -> {
             asesor.nombre = event.getNombre();
             asesor.telefono = event.getTelefono();
             asesor.correo = event.getCorreo();
@@ -21,24 +21,24 @@ public class AsesorEventChange extends EventChange {
             asesor.registroMap = new HashMap<>();
         });
 
-        apply((AutoAgregado event) ->{
+        apply((AutoAgregado event) -> {
             var autoId = event.getAutoId();
-            var auto = new Auto(autoId,event.getMarca(),event.getPlaca());
-            asesor.autoMap.put(autoId,auto);
+            var auto = new Auto(autoId, event.getMarca(), event.getPlaca());
+            asesor.autoMap.put(autoId, auto);
         });
 
-        apply((ClienteAgregado event) ->{
+        apply((ClienteAgregado event) -> {
             var clienteId = event.getClienteId();
-            var cliente = new Cliente(clienteId,event.getDocumento(),event.getNombre(),
-                    event.getTelefono(),event.getCorreo());
-            asesor.clienteMap.put(clienteId,cliente);
+            var cliente = new Cliente(clienteId, event.getDocumento(), event.getNombre(),
+                    event.getTelefono(), event.getCorreo());
+            asesor.clienteMap.put(clienteId, cliente);
         });
 
-        apply((RegistroExitoso event) ->{
+        apply((RegistroExitoso event) -> {
             var registroId = event.getRegistroId();
-            var registro = new Registro(registroId,event.getTipoTrabajo(),event.getIngreso(),
-                    event.getAutorizacionCliente(),event.getClienteMap(),event.getAutoMap());
-            asesor.registroMap.put(registroId,registro);
+            var registro = new Registro(registroId, event.getTipoTrabajo(), event.getIngreso(),
+                    event.getAutorizacionCliente(), event.getClienteMap(), event.getAutoMap());
+            asesor.registroMap.put(registroId, registro);
         });
     }
 }

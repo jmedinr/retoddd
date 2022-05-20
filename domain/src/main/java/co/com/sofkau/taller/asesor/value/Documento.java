@@ -9,11 +9,11 @@ public class Documento implements ValueObject<String> {
 
     public Documento(String value) {
         this.value = Objects.requireNonNull(value);
-        if(this.value.isBlank()){
+        if (this.value.isBlank()) {
             throw new IllegalArgumentException("El documento no puede estar en blanco");
         }
 
-        if(this.value.length() > 20){
+        if (this.value.length() > 20) {
             throw new IllegalArgumentException("El documento no permite mas de 20 caracteres");
         }
     }

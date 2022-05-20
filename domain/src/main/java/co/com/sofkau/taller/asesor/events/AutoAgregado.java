@@ -4,8 +4,6 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.taller.asesor.value.AutoId;
 import co.com.sofkau.taller.asesor.value.Marca;
 import co.com.sofkau.taller.asesor.value.Placa;
-import co.com.sofkau.taller.mecanico.value.MecanicoId;
-import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 public class AutoAgregado extends DomainEvent {
     private final AutoId autoId;

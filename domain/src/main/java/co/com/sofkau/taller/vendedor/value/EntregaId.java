@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.Identity;
 
 public class EntregaId extends Identity {
 
-    public EntregaId(String id){
+    public EntregaId(String id) {
         super(id);
     }
 
