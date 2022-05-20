@@ -5,9 +5,9 @@ import co.com.sofka.domain.generic.ValueObject;
 import java.util.Objects;
 
 public class ValorTotal implements ValueObject<Integer> {
-    private Integer value;
     private final ValorCompra valorCompra;
     private final ValorReparacion valorReparacion;
+    private Integer value;
 
     public ValorTotal(ValorCompra valorCompra, ValorReparacion valorReparacion) {
         this.value = 0;

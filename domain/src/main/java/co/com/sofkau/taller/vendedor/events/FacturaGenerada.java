@@ -4,7 +4,6 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.taller.mecanico.value.ListaRepuestos;
 import co.com.sofkau.taller.vendedor.value.*;
 
-
 import java.util.Set;
 
 

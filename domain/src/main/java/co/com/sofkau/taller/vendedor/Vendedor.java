@@ -61,8 +61,8 @@ public class Vendedor extends AggregateEvent<VendedorId> {
                              Set<DatosEmpresa> datosEmpresa, Set<DatosAuto> datosAuto,
                              Set<ListaRepuestos> listaRepuestosSet, ValorCompra valorCompra,
                              ValorReparacion valorReparacion, ValorTotal valorTotal) {
-        appendChange(new FacturaGenerada(facturaId,vendedorId,datosCliente,datosEmpresa,datosAuto,
-                listaRepuestosSet,valorCompra,valorReparacion,valorTotal)).apply();
+        appendChange(new FacturaGenerada(facturaId, vendedorId, datosCliente, datosEmpresa, datosAuto,
+                listaRepuestosSet, valorCompra, valorReparacion, valorTotal)).apply();
 
 
     }

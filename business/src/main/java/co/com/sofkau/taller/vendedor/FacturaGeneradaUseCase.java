@@ -6,7 +6,7 @@ import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofkau.taller.vendedor.events.FacturaGenerada;
 import co.com.sofkau.taller.vendedor.factory.FacturaFactory;
 
-public class FacruraGeneradaUseCase extends UseCase<TriggeredEvent<FacturaGenerada>, ResponseEvents> {
+public class FacturaGeneradaUseCase extends UseCase<TriggeredEvent<FacturaGenerada>, ResponseEvents> {
 
     @Override
     public void executeUseCase(TriggeredEvent<FacturaGenerada> facturaGeneradaTriggeredEvent) {
@@ -19,9 +19,9 @@ public class FacruraGeneradaUseCase extends UseCase<TriggeredEvent<FacturaGenera
 
         FacturaFactory factory = FacturaFactory.builder()
                 .agregarFactura(
-                        event.getFacturaId(),event.getVendedorId(),event.getDatosCliente(),event.getDatosEmpresa(),
+                        event.getFacturaId(), event.getVendedorId(), event.getDatosCliente(), event.getDatosEmpresa(),
                         event.getDatosAuto(), event.getListaRepuestosSet(), event.getValorCompra(),
-                        event.getValorReparacion(),event.getValorTotal()
+                        event.getValorReparacion(), event.getValorTotal()
                 );
 
         vendedor.crearFactura(event.getFacturaId(),
@@ -32,7 +32,7 @@ public class FacruraGeneradaUseCase extends UseCase<TriggeredEvent<FacturaGenera
                 factory.factura().stream().iterator().next().getValorCompra(),
                 factory.factura().stream().iterator().next().getValorReparacion(),
                 factory.factura().stream().iterator().next().getValorTotal()
-                );
+        );
 
         emit().onResponse(new ResponseEvents(vendedor.getUncommittedChanges()));
     }
