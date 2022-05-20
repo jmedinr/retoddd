@@ -3,6 +3,8 @@ package co.com.sofkau.taller.mecanico;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
+import co.com.sofkau.generic.values.Estados;
+import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.mecanico.commands.AgregarReparacion;
 
 public class AgregarReparacionUseCase extends UseCase<RequestCommand<AgregarReparacion>, ResponseEvents> {

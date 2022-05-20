@@ -47,18 +47,21 @@ public class Mecanico extends AggregateEvent<MecanicoId> {
     }
 
     public void agregarTarea(TipoTrabajo tipoTrabajo, Estados estados, Observacion observacion) {
-        if (tipoTrabajo.equals("REPARACION") && estados.equals("ENPROCESO")) {
+        if (tipoTrabajo.value().equals(TipoTrabajo.Tipos.REPARACION) && estados.value().equals(Estados.Estado.ENPROCESO)) {
             var reparacionId = new ReparacionId();
-            appendChange(new ReparacionAgregada(reparacionId, estados, observacion));
+            appendChange(new ReparacionAgregada(reparacionId, tipoTrabajo, estados, observacion));
         }
-        if (tipoTrabajo.equals("GARANTIA") && estados.equals("ENPROCESO")) {
+        else if (tipoTrabajo.value().equals(TipoTrabajo.Tipos.GARANTIA) && estados.value().equals(Estados.Estado.ENPROCESO)) {
             var garantiaId = new GarantiaId();
-            appendChange(new GarantiaAgregada(garantiaId, estados, observacion));
+            appendChange(new GarantiaAgregada(garantiaId, tipoTrabajo, estados, observacion));
+        }else {
+            throw new IllegalArgumentException("El trabajo ya fue finalizado");
         }
+
     }
 
     public void finalizarTarea(TipoTrabajo tipoTrabajo, Observacion observacion) {
-        if (tipoTrabajo.equals("REPARACION")) {
+        if (tipoTrabajo.value().equals(TipoTrabajo.Tipos.REPARACION)) {
             var idReparacion = reparacionMap.keySet().
                     stream().
                     iterator().
@@ -68,7 +71,7 @@ public class Mecanico extends AggregateEvent<MecanicoId> {
                     .finalizar();
             appendChange(new ReparacionFinalizada(vendedorId, registroId, idReparacion, estadoFinalizado, observacion, inspeccionMap));
         }
-        if (tipoTrabajo.equals("GARANTIA")) {
+        if (tipoTrabajo.value().equals(TipoTrabajo.Tipos.GARANTIA)) {
             var idGarantia = garantiaMap.keySet().
                     stream().
                     iterator().

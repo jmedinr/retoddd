@@ -11,6 +11,7 @@ import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.asesor.commands.AgregarRegistro;
 import co.com.sofkau.taller.asesor.events.AsesorAsignado;
 import co.com.sofkau.taller.asesor.events.AutoAgregado;
+import co.com.sofkau.taller.asesor.events.ClienteAgregado;
 import co.com.sofkau.taller.asesor.events.RegistroExitoso;
 import co.com.sofkau.taller.asesor.value.*;
 import co.com.sofkau.taller.mecanico.value.MecanicoId;
@@ -24,11 +25,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,28 +42,14 @@ class AgregarRegistroUseCaseTest {
     void agregarRegistroHappyPass(){
         //arrange
         var registroId = RegistroId.of("1012");
-        var mecanidoId = MecanicoId.of("1242");
-        var vendedorId = VendedorId.of("741");
         var asesorId = AsesorId.of("1010");
+        var clienteId = ClienteId.of("875");
+        var autoId = AutoId.of("88");
         var tipoTrabajo = new TipoTrabajo(TipoTrabajo.Tipos.REPARACION);
         var ingreso = new Ingreso(LocalDateTime.now(), LocalDate.now());
         var autorizacionCliente = new AutorizacionCliente(AutorizacionCliente.Autorizacion.AUTORIZADO);
-        var autoId = AutoId.of("88");
-        var marca = new Marca("Chevrolet");
-        var placa = new Placa("XYZ785");
-        var auto = new Auto(autoId,marca,placa);
-        Map<AutoId, Auto> autoMap = new HashMap<>();
-        autoMap.put(autoId,auto);
-        Map<ClienteId, Cliente> clienteMap = new HashMap<>();
-        var clienteId = ClienteId.of("875");
-        var documento = new Documento("78459524");
-        var nombre = new Nombre("Pepito");
-        var telefono = new Telefono("7845879856");
-        var correo = new Correo("pepito@cliente.com");
-        var cliente = new Cliente(clienteId,documento,nombre,telefono,correo);
-        clienteMap.put(clienteId,cliente);
-        var command = new AgregarRegistro(registroId,mecanidoId,vendedorId,asesorId,tipoTrabajo,ingreso,
-                autorizacionCliente,autoMap,clienteMap);
+        var command = new AgregarRegistro(registroId,asesorId,clienteId,autoId,tipoTrabajo,ingreso,
+                autorizacionCliente);
 
         when(repository.getEventsBy("1010")).thenReturn(history());
         useCase.addRepository(repository);
@@ -80,7 +64,7 @@ class AgregarRegistroUseCaseTest {
 
         //assert
         var event = (RegistroExitoso)events.get(0);
-        Assertions.assertEquals(TipoTrabajo.Tipos.REPARACION,event.getTipoTrabajo().value());
+        Assertions.assertEquals(AutorizacionCliente.Autorizacion.AUTORIZADO,event.getAutorizacionCliente().value());
 
     }
 
@@ -93,8 +77,19 @@ class AgregarRegistroUseCaseTest {
 
         var event = new AsesorAsignado(nombre,telefono,correo,mecanicoId,vendedorId);
 
+        var clienteId = ClienteId.of("875");
+        var documento = new Documento("78459524");
+
+        var event2 = new ClienteAgregado(clienteId,documento,nombre,telefono,correo);
+
+        var autoId = AutoId.of("88");
+        var marca = new Marca("Chevrolet");
+        var placa = new Placa("XYZ785");
+
+        var event3 = new AutoAgregado(autoId,marca,placa);
+
         event.setAggregateRootId("1010");
-        return List.of(event);
+        return List.of(event,event2,event3);
     }
 
 }

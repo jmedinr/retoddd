@@ -18,14 +18,15 @@ public class FinalizarReparacion extends Command {
     private final MecanicoId mecanicoId;
     private final RegistroId registroId;
     private final ReparacionId reparacionId;
+    private final InspeccionId inspeccionId;
     private final TipoTrabajo tipoTrabajo;
     private final Estados estados;
     private final Observacion observacion;
-    private final Map<InspeccionId, Inspeccion> inspeccionMap;
 
     public FinalizarReparacion(VendedorId vendedorId, MecanicoId mecanicoId, RegistroId registroId,
-                               ReparacionId reparacionId, TipoTrabajo tipoTrabajo, Estados estados,
-                               Observacion observacion, Map<InspeccionId, Inspeccion> inspeccionMap) {
+                               ReparacionId reparacionId, InspeccionId inspeccionId,
+                               TipoTrabajo tipoTrabajo, Estados estados,
+                               Observacion observacion) {
         this.vendedorId = vendedorId;
         this.mecanicoId = mecanicoId;
         this.registroId = registroId;
@@ -33,7 +34,7 @@ public class FinalizarReparacion extends Command {
         this.tipoTrabajo = tipoTrabajo;
         this.estados = estados;
         this.observacion = observacion;
-        this.inspeccionMap = inspeccionMap;
+        this.inspeccionId = inspeccionId;
     }
 
     public TipoTrabajo getTipoTrabajo() {
@@ -64,7 +65,7 @@ public class FinalizarReparacion extends Command {
         return observacion;
     }
 
-    public Map<InspeccionId, Inspeccion> getInspeccionMap() {
-        return inspeccionMap;
+    public InspeccionId getInspeccionId() {
+        return inspeccionId;
     }
 }

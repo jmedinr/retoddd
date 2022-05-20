@@ -2,34 +2,26 @@ package co.com.sofkau.taller.asesor.commands;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofkau.generic.values.TipoTrabajo;
-import co.com.sofkau.taller.asesor.Auto;
-import co.com.sofkau.taller.asesor.Cliente;
 import co.com.sofkau.taller.asesor.value.*;
-import co.com.sofkau.taller.mecanico.value.MecanicoId;
-import co.com.sofkau.taller.vendedor.value.VendedorId;
-
-import java.util.Map;
 
 public class AgregarRegistro extends Command {
     private final RegistroId registroId;
     private final AsesorId asesorId;
+    private final ClienteId clienteId;
+    private final AutoId autoId;
     private final TipoTrabajo tipoTrabajo;
     private final Ingreso ingreso;
     private final AutorizacionCliente autorizacionCliente;
-    private final Map<AutoId, Auto> autoMap;
-    private final Map<ClienteId, Cliente> clienteMap;
 
-
-    public AgregarRegistro(RegistroId registroId, MecanicoId mecanicoId, VendedorId vendedorId, AsesorId asesorId, TipoTrabajo tipoTrabajo,
-                           Ingreso ingreso, AutorizacionCliente autorizacionCliente,
-                           Map<AutoId, Auto> autoMap, Map<ClienteId, Cliente> clienteMap) {
+    public AgregarRegistro(RegistroId registroId, AsesorId asesorId, ClienteId clienteId, AutoId autoId,
+                           TipoTrabajo tipoTrabajo, Ingreso ingreso, AutorizacionCliente autorizacionCliente) {
         this.registroId = registroId;
         this.asesorId = asesorId;
+        this.clienteId = clienteId;
+        this.autoId = autoId;
         this.tipoTrabajo = tipoTrabajo;
         this.ingreso = ingreso;
         this.autorizacionCliente = autorizacionCliente;
-        this.autoMap = autoMap;
-        this.clienteMap = clienteMap;
     }
 
     public AsesorId getAsesorId() {
@@ -44,10 +36,6 @@ public class AgregarRegistro extends Command {
         return registroId;
     }
 
-    public Map<ClienteId, Cliente> getClienteMap() {
-        return clienteMap;
-    }
-
     public Ingreso getIngreso() {
         return ingreso;
     }
@@ -56,7 +44,11 @@ public class AgregarRegistro extends Command {
         return autorizacionCliente;
     }
 
-    public Map<AutoId, Auto> getAutoMap() {
-        return autoMap;
+    public ClienteId getClienteId() {
+        return clienteId;
+    }
+
+    public AutoId getAutoId() {
+        return autoId;
     }
 }

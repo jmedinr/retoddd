@@ -31,7 +31,7 @@ import static org.mockito.Mockito.when;
 class AgregarAutoUseCaseTest {
 
     @InjectMocks
-    AgragarAutoUseCase useCase;
+    AgregarAutoUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;

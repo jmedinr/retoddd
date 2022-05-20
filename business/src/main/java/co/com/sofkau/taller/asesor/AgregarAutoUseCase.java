@@ -5,7 +5,7 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.asesor.commands.AgregarAuto;
 
-public class AgragarAutoUseCase extends UseCase<RequestCommand<AgregarAuto>, ResponseEvents> {
+public class AgregarAutoUseCase extends UseCase<RequestCommand<AgregarAuto>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<AgregarAuto> agregarAutoRequestCommand) {
