@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Esta clase registra la fecha y la hora en que ingresa una reparacion al negocio
+ */
 public class Ingreso implements ValueObject<Ingreso.Pros> {
 
     private final LocalDateTime horaingreso;

@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Esta clase es para la marca del carro a reparar
+ */
 public class Marca implements ValueObject<String> {
     private final String value;
 

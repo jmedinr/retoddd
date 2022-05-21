@@ -9,6 +9,9 @@ import co.com.sofkau.taller.asesor.value.RegistroId;
 import co.com.sofkau.taller.mecanico.value.MecanicoId;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
+/**
+ * Este comando asigna un mecanico a una registro de reparacion
+ */
 public class AsignarMecanico extends Command {
     private final VendedorId vendedorId;
     private final MecanicoId mecanicoId;

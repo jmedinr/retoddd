@@ -7,6 +7,9 @@ import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.mecanico.value.MecanicoId;
 import co.com.sofkau.taller.mecanico.value.ReparacionId;
 
+/**
+ * Este comando agrega una reparacion
+ */
 public class AgregarReparacion extends Command {
     private final ReparacionId reparacionId;
     private final MecanicoId mecanicoId;

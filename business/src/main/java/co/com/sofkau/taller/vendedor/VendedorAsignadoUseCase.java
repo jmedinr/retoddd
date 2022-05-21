@@ -5,6 +5,9 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofkau.taller.vendedor.events.VendedorAsignado;
 
+/**
+ * Caso de uso para asignar un vendedor a un cliente
+ */
 public class VendedorAsignadoUseCase extends UseCase<TriggeredEvent<VendedorAsignado>, ResponseEvents> {
 
     @Override

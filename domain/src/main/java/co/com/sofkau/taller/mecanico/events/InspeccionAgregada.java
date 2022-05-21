@@ -7,6 +7,9 @@ import co.com.sofkau.taller.mecanico.value.ListaRepuestos;
 
 import java.util.Set;
 
+/**
+ * Evento que se lanza cuando se realiza una inspeccion inicial del vehiculo
+ */
 public class InspeccionAgregada extends DomainEvent {
     private final InspeccionId inspeccionId;
     private final Diagnostico diagnostico;

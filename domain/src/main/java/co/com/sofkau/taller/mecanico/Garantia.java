@@ -5,6 +5,9 @@ import co.com.sofkau.generic.values.Estados;
 import co.com.sofkau.generic.values.Observacion;
 import co.com.sofkau.taller.mecanico.value.GarantiaId;
 
+/**
+ * Entidad garantia representa un trabajo de garantia
+ */
 public class Garantia extends Entity<GarantiaId> {
     protected Estados estados;
     protected Observacion observacion;

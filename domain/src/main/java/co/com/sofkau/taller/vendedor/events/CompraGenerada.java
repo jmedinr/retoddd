@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.taller.vendedor.value.ValorCompra;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
+/**
+ * Evento lanzado al realizar la compra de repuestos
+ */
 public class CompraGenerada extends DomainEvent {
     private final VendedorId vendedorId;
     private final ValorCompra valorCompra;

@@ -7,6 +7,9 @@ import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.mecanico.value.GarantiaId;
 import co.com.sofkau.taller.mecanico.value.MecanicoId;
 
+/**
+ * Comando para agregar una garantia de una reparacion
+ */
 public class AgregarGarantia extends Command {
     private final GarantiaId garantiaId;
     private final MecanicoId mecanicoId;

@@ -5,6 +5,9 @@ import co.com.sofkau.taller.asesor.value.AutoId;
 import co.com.sofkau.taller.asesor.value.Marca;
 import co.com.sofkau.taller.asesor.value.Placa;
 
+/**
+ * Entidad automovil que será reparado
+ */
 public class Auto extends Entity<AutoId> {
     protected Marca marca;
     protected Placa placa;

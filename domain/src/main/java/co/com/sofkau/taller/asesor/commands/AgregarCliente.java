@@ -8,6 +8,9 @@ import co.com.sofkau.taller.asesor.value.AsesorId;
 import co.com.sofkau.taller.asesor.value.ClienteId;
 import co.com.sofkau.taller.asesor.value.Documento;
 
+/**
+ * Esta clase es un camando para registrar clientes por parte del asesor
+ */
 public class AgregarCliente extends Command {
     private final ClienteId clienteId;
     private final AsesorId asesorId;

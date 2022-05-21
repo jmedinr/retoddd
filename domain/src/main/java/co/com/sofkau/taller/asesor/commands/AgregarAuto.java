@@ -6,6 +6,9 @@ import co.com.sofkau.taller.asesor.value.AutoId;
 import co.com.sofkau.taller.asesor.value.Marca;
 import co.com.sofkau.taller.asesor.value.Placa;
 
+/**
+ * Esta clase es un camando para registrar autos por parte de los asesores
+ */
 public class AgregarAuto extends Command {
     private final AutoId autoId;
     private final AsesorId asesorId;

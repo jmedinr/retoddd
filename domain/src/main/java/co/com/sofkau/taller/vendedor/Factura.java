@@ -6,6 +6,9 @@ import co.com.sofkau.taller.vendedor.value.*;
 
 import java.util.Set;
 
+/**
+ * Entidad que representa una factura del negocio
+ */
 public class Factura extends Entity<FacturaId> {
     protected VendedorId vendedorId;
     protected DatosCliente datosCliente;

@@ -6,6 +6,9 @@ import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofkau.taller.vendedor.events.FacturaGenerada;
 import co.com.sofkau.taller.vendedor.factory.FacturaFactory;
 
+/**
+ * Caso de uso para generar una factura
+ */
 public class FacturaGeneradaUseCase extends UseCase<TriggeredEvent<FacturaGenerada>, ResponseEvents> {
 
     @Override

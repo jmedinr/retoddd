@@ -7,6 +7,9 @@ import co.com.sofkau.generic.values.Telefono;
 import co.com.sofkau.taller.asesor.value.ClienteId;
 import co.com.sofkau.taller.asesor.value.Documento;
 
+/**
+ * Esta clase es un objeto de dominio que se lanza cuando un cliente es agregado
+ */
 public class ClienteAgregado extends DomainEvent {
     private final ClienteId clienteId;
     private final Documento documento;

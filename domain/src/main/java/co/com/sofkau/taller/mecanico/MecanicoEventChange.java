@@ -8,6 +8,9 @@ import co.com.sofkau.taller.mecanico.events.ReparacionAgregada;
 
 import java.util.HashMap;
 
+/**
+ * Controlados de eventos del agregado Mecanico
+ */
 public class MecanicoEventChange extends EventChange {
     public MecanicoEventChange(Mecanico mecanico) {
         apply((MecanicoAsignado event) -> {

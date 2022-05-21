@@ -6,6 +6,10 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * La clase correo es un objeto de valor generico para los correos eléctronicos
+ * de los vendedores, asesores, mecanicos y clientes
+ */
 public class Correo implements ValueObject<String> {
     private final String value;
 

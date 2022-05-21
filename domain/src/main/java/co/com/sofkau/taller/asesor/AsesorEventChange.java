@@ -8,6 +8,9 @@ import co.com.sofkau.taller.asesor.events.RegistroExitoso;
 
 import java.util.HashMap;
 
+/**
+ * Controlador de eventos para el agregado asesor
+ */
 public class AsesorEventChange extends EventChange {
     public AsesorEventChange(Asesor asesor) {
         apply((AsesorAsignado event) -> {

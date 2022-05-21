@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Esta clase es un objeto de valor que describe el tipo de trabajo que realizará el mecanico
+ */
 public class TipoTrabajo implements ValueObject<TipoTrabajo.Tipos> {
 
     private final TipoTrabajo.Tipos value;

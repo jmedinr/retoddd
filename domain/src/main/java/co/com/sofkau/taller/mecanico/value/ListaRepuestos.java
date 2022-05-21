@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Objeto de valor para representar un repuesto
+ */
 public class ListaRepuestos implements ValueObject<String> {
     private final String value;
 

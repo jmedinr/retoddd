@@ -5,6 +5,9 @@ import co.com.sofkau.taller.vendedor.value.Salida;
 import co.com.sofkau.taller.vendedor.value.ValorTotal;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
+/**
+ * Evento lanzado al autorizar la salida de un vehiculo
+ */
 public class EntregaRealizada extends DomainEvent {
     private final VendedorId vendedorId;
     private final Salida salida;

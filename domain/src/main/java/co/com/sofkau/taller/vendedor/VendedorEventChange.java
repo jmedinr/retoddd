@@ -9,6 +9,9 @@ import co.com.sofkau.taller.vendedor.value.VentaId;
 
 import java.util.HashMap;
 
+/**
+ * Controlador de eventos del agregado vendedor
+ */
 public class VendedorEventChange extends EventChange {
     public VendedorEventChange(Vendedor vendedor) {
         apply((VendedorAsignado event) -> {

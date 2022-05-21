@@ -7,6 +7,9 @@ import co.com.sofkau.taller.vendedor.value.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Factoria para generar las facturas
+ */
 public class FacturaFactory {
     private final Set<Factura> factura;
 

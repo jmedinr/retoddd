@@ -7,6 +7,9 @@ import co.com.sofkau.taller.vendedor.value.TipoPago;
 import co.com.sofkau.taller.vendedor.value.ValorReparacion;
 import co.com.sofkau.taller.vendedor.value.VentaId;
 
+/**
+ * Entidad que representa una venta de una reparacion realizada
+ */
 public class Venta extends Entity<VentaId> {
     protected TipoPago tipoPago;
     protected MetodoPago metodoPago;

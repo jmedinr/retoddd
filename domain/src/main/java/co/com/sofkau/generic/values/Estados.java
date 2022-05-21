@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * La clase estados es un objeto de valor generico para controlar el estado de las reparaciones y garantias
+ */
 public class Estados implements ValueObject<Estados.Estado> {
     private Estados.Estado value;
 

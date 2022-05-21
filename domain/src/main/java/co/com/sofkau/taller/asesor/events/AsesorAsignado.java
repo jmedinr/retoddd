@@ -7,7 +7,9 @@ import co.com.sofkau.generic.values.Telefono;
 import co.com.sofkau.taller.mecanico.value.MecanicoId;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
-
+/**
+ * Esta clase es un evento de dominio que se lanza cuando se asigna un asesor
+ */
 public class AsesorAsignado extends DomainEvent {
     private final Nombre nombre;
     private final Telefono telefono;

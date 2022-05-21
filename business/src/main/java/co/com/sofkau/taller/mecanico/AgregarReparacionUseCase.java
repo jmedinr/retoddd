@@ -5,6 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.mecanico.commands.AgregarReparacion;
 
+/**
+ * Caso de uso para que una reparacion sea iniciada
+ */
 public class AgregarReparacionUseCase extends UseCase<RequestCommand<AgregarReparacion>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<AgregarReparacion> agregarReparacionRequestCommand) {

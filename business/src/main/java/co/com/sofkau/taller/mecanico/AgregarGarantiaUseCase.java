@@ -5,6 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.mecanico.commands.AgregarGarantia;
 
+/**
+ * Caso de uso para realizar una garantia
+ */
 public class AgregarGarantiaUseCase extends UseCase<RequestCommand<AgregarGarantia>, ResponseEvents> {
 
     @Override

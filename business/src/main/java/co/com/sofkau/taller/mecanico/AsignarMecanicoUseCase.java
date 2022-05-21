@@ -5,6 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.mecanico.commands.AsignarMecanico;
 
+/**
+ * Caso de uso para que un mecanico sea asignado a un cliente
+ */
 public class AsignarMecanicoUseCase extends UseCase<RequestCommand<AsignarMecanico>, ResponseEvents> {
 
     @Override

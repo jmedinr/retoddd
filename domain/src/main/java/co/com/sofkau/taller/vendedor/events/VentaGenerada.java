@@ -6,6 +6,9 @@ import co.com.sofkau.taller.vendedor.value.TipoPago;
 import co.com.sofkau.taller.vendedor.value.ValorReparacion;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
+/**
+ * Evento lanzado cuando se genera el cobro de una reparacion
+ */
 public class VentaGenerada extends DomainEvent {
     private final VendedorId vendedorId;
     private final TipoPago tipoPago;

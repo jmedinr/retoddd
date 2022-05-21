@@ -5,6 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.asesor.commands.AgregarCliente;
 
+/**
+ * Caso de uso para agregar un cliente
+ */
 public class AgregarClienteUseCase extends UseCase<RequestCommand<AgregarCliente>, ResponseEvents> {
 
     @Override

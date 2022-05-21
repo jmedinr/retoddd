@@ -10,7 +10,9 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 import java.util.Map;
 
-
+/**
+ * Esta clase es un objeto de dominio que se lanza cuando un registro se crea
+ */
 public class RegistroExitoso extends DomainEvent {
     private final RegistroId registroId;
     private final MecanicoId mecanicoId;

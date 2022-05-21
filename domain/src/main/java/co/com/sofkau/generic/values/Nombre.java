@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Nombre es un objeto de valor generico para los telefonos de los vendedores, asesores, mecanicos y clientes
+ */
 public class Nombre implements ValueObject<String> {
     private final String value;
 

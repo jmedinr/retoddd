@@ -4,6 +4,10 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Observacion es un objeto de valor generico en el cual se describe las reparaciones y garantias
+ * realizadas por parte de los mecanicos.
+ */
 public class Observacion implements ValueObject<String> {
 
     private final String value;

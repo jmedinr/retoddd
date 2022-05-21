@@ -11,6 +11,9 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 import java.util.Set;
 
+/**
+ * Evento lanzado cuando se asigna un vendedor
+ */
 public class VendedorAsignado extends DomainEvent {
     private final VendedorId vendedorId;
     private final Nombre nombre;

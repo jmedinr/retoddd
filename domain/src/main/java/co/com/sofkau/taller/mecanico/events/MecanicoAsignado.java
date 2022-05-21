@@ -8,6 +8,9 @@ import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.asesor.value.RegistroId;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
+/**
+ * Evento que se lanza cuando se asigna un mecanico
+ */
 public class MecanicoAsignado extends DomainEvent {
     private final VendedorId vendedorId;
     private final RegistroId registroId;

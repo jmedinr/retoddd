@@ -6,6 +6,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.mecanico.commands.FinalizarReparacion;
 
+/**
+ * Caso de uso para finalizar una reparacion
+ */
 public class FinalizarReparacionUseCase extends UseCase<RequestCommand<FinalizarReparacion>, ResponseEvents> {
 
     @Override

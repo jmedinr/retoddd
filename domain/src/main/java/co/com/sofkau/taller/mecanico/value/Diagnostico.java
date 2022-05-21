@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Objeto de valor que representa el diagnostico inicial en una inspeccion
+ */
 public class Diagnostico implements ValueObject<String> {
     private final String value;
 

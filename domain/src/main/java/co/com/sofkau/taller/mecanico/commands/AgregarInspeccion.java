@@ -8,6 +8,9 @@ import co.com.sofkau.taller.mecanico.value.MecanicoId;
 
 import java.util.Set;
 
+/**
+ * Comando para iniciar una inspeccion y tener un diagnotisco de las fallas del auto
+ */
 public class AgregarInspeccion extends Command {
     private final InspeccionId inspeccionId;
     private final MecanicoId mecanicoId;

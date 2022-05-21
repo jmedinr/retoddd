@@ -11,6 +11,9 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 import java.util.Map;
 
+/**
+ * Evento que se lanza cuando una garantia es finalizada
+ */
 public class GarantiaFinalizada extends DomainEvent {
     private final VendedorId vendedorId;
     private final RegistroId registroId;

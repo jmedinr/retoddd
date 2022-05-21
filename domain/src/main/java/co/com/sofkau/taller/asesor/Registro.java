@@ -6,6 +6,9 @@ import co.com.sofkau.taller.asesor.value.*;
 
 import java.util.Map;
 
+/**
+ * Entidad que registra y autoriza una reparacion o garantia
+ */
 public class Registro extends Entity<RegistroId> {
     protected TipoTrabajo tipoTrabajo;
     protected Ingreso ingreso;

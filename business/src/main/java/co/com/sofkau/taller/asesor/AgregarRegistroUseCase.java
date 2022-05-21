@@ -5,6 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.asesor.commands.AgregarRegistro;
 
+/**
+ * Caso de uso para realizar un registro y autorizar el ingreso de un cliente
+ */
 public class AgregarRegistroUseCase extends UseCase<RequestCommand<AgregarRegistro>, ResponseEvents> {
 
 

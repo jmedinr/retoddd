@@ -7,6 +7,9 @@ import co.com.sofkau.generic.values.Telefono;
 import co.com.sofkau.taller.asesor.value.ClienteId;
 import co.com.sofkau.taller.asesor.value.Documento;
 
+/**
+ * Entidad cliente que quiere que le reparen un auto
+ */
 public class Cliente extends Entity<ClienteId> {
     protected Documento documento;
     protected Nombre nombre;

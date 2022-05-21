@@ -11,6 +11,9 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 import java.util.Map;
 
+/**
+ * Evento que se lanza cuando se finaliza una reparacion
+ */
 public class ReparacionFinalizada extends DomainEvent {
     private final VendedorId vendedorId;
     private final RegistroId registroId;

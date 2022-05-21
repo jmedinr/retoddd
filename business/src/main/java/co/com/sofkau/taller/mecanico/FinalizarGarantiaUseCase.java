@@ -5,6 +5,9 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofkau.taller.mecanico.commands.FinalizarGarantia;
 
+/**
+ * Caso de uso para que una garantia sea iniciada
+ */
 public class FinalizarGarantiaUseCase extends UseCase<RequestCommand<FinalizarGarantia>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<FinalizarGarantia> finalizarGarantiaRequestCommand) {

@@ -6,6 +6,9 @@ import co.com.sofkau.generic.values.Observacion;
 import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.mecanico.value.GarantiaId;
 
+/**
+ * Evento que se lanza cuando una garantia es iniciada
+ */
 public class GarantiaAgregada extends DomainEvent {
     private final GarantiaId garantiaId;
     private final TipoTrabajo tipoTrabajo;

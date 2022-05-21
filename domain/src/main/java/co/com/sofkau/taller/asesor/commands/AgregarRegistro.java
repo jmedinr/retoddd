@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.Command;
 import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.asesor.value.*;
 
+/**
+ * Esta clase es un comando para registrar el ingreso al negocio de un cliente
+ */
 public class AgregarRegistro extends Command {
     private final RegistroId registroId;
     private final AsesorId asesorId;

@@ -15,6 +15,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Agregado que representa al vendedor el cual puede registrar una venta por la reparacion, una compra de repuestos,
+ * autoriza una salida del vehiculo reparado y genera una factura para el cliente
+ */
 public class Vendedor extends AggregateEvent<VendedorId> {
     protected Nombre nombre;
     protected Telefono telefono;

@@ -17,6 +17,9 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Agregado asesor se encarga de registrar al cliente, auto y generar el ingreso de este mediante un registro
+ */
 public class Asesor extends AggregateEvent<AsesorId> {
     protected MecanicoId mecanicoId;
     protected VendedorId vendedorId;

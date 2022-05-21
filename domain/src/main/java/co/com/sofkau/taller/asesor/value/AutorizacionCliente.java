@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Esta clase es un objeto de valor para registrar que un cliente autoriza que se le repare el auto.
+ */
 public class AutorizacionCliente implements ValueObject<AutorizacionCliente.Autorizacion> {
     private final AutorizacionCliente.Autorizacion value;
 

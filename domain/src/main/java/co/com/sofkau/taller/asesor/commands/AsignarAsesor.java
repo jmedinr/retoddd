@@ -8,6 +8,9 @@ import co.com.sofkau.taller.asesor.value.AsesorId;
 import co.com.sofkau.taller.mecanico.value.MecanicoId;
 import co.com.sofkau.taller.vendedor.value.VendedorId;
 
+/**
+ * Esta clase es un comando para regitrar un asesor y asociarlo con un mecanico y un vendedor
+ */
 public class AsignarAsesor extends Command {
     private final AsesorId asesorId;
     private final MecanicoId mecanicoId;

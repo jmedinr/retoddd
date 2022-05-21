@@ -6,6 +6,9 @@ import co.com.sofkau.generic.values.Observacion;
 import co.com.sofkau.generic.values.TipoTrabajo;
 import co.com.sofkau.taller.mecanico.value.ReparacionId;
 
+/**
+ * Evento que se lanza cuando una reparacion es iniciada
+ */
 public class ReparacionAgregada extends DomainEvent {
     private final ReparacionId reparacionId;
     private final TipoTrabajo tipoTrabajo;

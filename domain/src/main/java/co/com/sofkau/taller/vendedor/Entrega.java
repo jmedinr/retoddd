@@ -5,6 +5,9 @@ import co.com.sofkau.taller.vendedor.value.EntregaId;
 import co.com.sofkau.taller.vendedor.value.Salida;
 import co.com.sofkau.taller.vendedor.value.ValorTotal;
 
+/**
+ * Entidad que autoriza la salida de un vehiculo
+ */
 public class Entrega extends Entity<EntregaId> {
     protected Salida salida;
     protected ValorTotal valorTotal;

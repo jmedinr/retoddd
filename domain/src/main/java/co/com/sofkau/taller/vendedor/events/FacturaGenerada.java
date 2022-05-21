@@ -6,7 +6,9 @@ import co.com.sofkau.taller.vendedor.value.*;
 
 import java.util.Set;
 
-
+/**
+ * Evento lanzado cuando se genera una factura
+ */
 public class FacturaGenerada extends DomainEvent {
     private final FacturaId facturaId;
     private final VendedorId vendedorId;

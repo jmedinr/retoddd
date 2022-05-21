@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
+/**
+ * Esta clase es un objeto de valor para el documento de los clientes
+ */
 public class Documento implements ValueObject<String> {
     private final String value;
 

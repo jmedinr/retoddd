@@ -13,6 +13,9 @@ import co.com.sofkau.taller.vendedor.value.VendedorId;
 
 import java.util.Map;
 
+/**
+ * Este comando finaliza un trabajo de reparacion
+ */
 public class FinalizarReparacion extends Command {
     private final VendedorId vendedorId;
     private final MecanicoId mecanicoId;

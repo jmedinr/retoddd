@@ -5,6 +5,9 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofkau.taller.vendedor.events.VentaGenerada;
 
+/**
+ * Caso de uso para registrar la venta de una reparacion
+ */
 public class VentaGeneradaUseCase extends UseCase<TriggeredEvent<VentaGenerada>, ResponseEvents> {
 
     @Override

@@ -5,6 +5,9 @@ import co.com.sofkau.generic.values.Estados;
 import co.com.sofkau.generic.values.Observacion;
 import co.com.sofkau.taller.mecanico.value.ReparacionId;
 
+/**
+ * Entidad reparacion representa un trabajo de reparacion
+ */
 public class Reparacion extends Entity<ReparacionId> {
     protected Estados estados;
     protected Observacion observacion;

@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Agregado Mecanico que realizará los trabajos de reparacion y garantía
+ */
 public class Mecanico extends AggregateEvent<MecanicoId> {
     protected VendedorId vendedorId;
     protected RegistroId registroId;

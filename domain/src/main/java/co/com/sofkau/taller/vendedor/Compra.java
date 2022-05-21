@@ -4,6 +4,9 @@ import co.com.sofka.domain.generic.Entity;
 import co.com.sofkau.taller.vendedor.value.CompraId;
 import co.com.sofkau.taller.vendedor.value.ValorCompra;
 
+/**
+ * Entidad que registra una compra de repuestos
+ */
 public class Compra extends Entity<CompraId> {
     protected ValorCompra valorCompra;
 

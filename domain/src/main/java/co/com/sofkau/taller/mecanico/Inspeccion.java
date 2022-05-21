@@ -7,6 +7,9 @@ import co.com.sofkau.taller.mecanico.value.ListaRepuestos;
 
 import java.util.Set;
 
+/**
+ * Entidad inspeccion representa una inspeccion inicial dle vehiculo
+ */
 public class Inspeccion extends Entity<InspeccionId> {
     protected Diagnostico diagnostico;
     protected Set<ListaRepuestos> listaRepuestosSet;
