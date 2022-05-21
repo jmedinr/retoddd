@@ -1,5 +1,5 @@
 # retoddd
-Reto DDD
+Reto DDD por Juan Diego Medina Rojas
 
 #Modelo de dominio en draw.io
 
