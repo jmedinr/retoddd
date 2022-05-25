@@ -1,6 +1,8 @@
 # retoddd
 Reto DDD por Juan Diego Medina Rojas
 
+# Video Explicativo: https://www.youtube.com/watch?v=ZwSKM_sdv8I
+
 #Modelo de dominio en draw.io
 
 https://drive.google.com/file/d/1yp5zPqpUt0Lft0C3sFTmWep1UqlfWxKn/view?usp=sharing
